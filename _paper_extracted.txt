@@ -1,0 +1,938 @@
+Highlights
+CoG2 RH-LLM: A Geometric Graph Attention Framework for Faithful Knowledge-Grounded
+Dialogue Generation
+Xinzhi Wang, Yuxuan Li, Ruishen Liu, Mingxuan Wang, Xiangfeng Luo
+
+
+   • Propose a novel CoG2 RH-LLM framework to mitigate factual hallucinations in knowledge-intensive domain.
+
+   • Design a geometric graph attention for fine-grained, structure-aware KG fusion.
+   • Introduce graph-context contrastive learning to enforce semantic consistency.
+   • The model outperforms strong baselines including RHO on the OpenDialKG benchmark.
+CoG2RH-LLM: A Geometric Graph Attention Framework for Faithful
+Knowledge-Grounded Dialogue Generation⋆
+Xinzhi Wanga , Yuxuan Lia , Ruishen Liua , Mingxuan Wanga and Xiangfeng Luoa,∗
+a School of Computer Engineering and Science, Shanghai University, 99 Shangda Road, Shanghai, 200444, Shanghai, China
+
+
+
+ARTICLE INFO                                        ABSTRACT
+Keywords:                                           Factual hallucination is a significant challenge in Large Language Models, limiting their practical
+Large Language Models                               applications for dialogue generation in specific, knowledge-intensive domains. A key mitigation strategy
+Knowledge Graphs                                    involves grounding dialogues in Knowledge Graphs, which provide reliable structured facts. However,
+Hallucination Reduction                             this approach is constrained by two primary issues: structural heterogeneity and information noise. To
+Knowledge-Enhanced Dialogue                         address these challenges, this paper proposes a novel geometric graph attention framework to enhance
+Graph Attention Networks                            dialogue fidelity. First, the framework addresses structural heterogeneity using a Geometric Weighted
+                                                    Average Graph Attention mechanism. It achieves precise fusion by applying component-wise attention
+                                                    to deconstructed KG triples, followed by a geometric mean aggregation. Second, a knowledge gating
+                                                    mechanism mitigates information noise by dynamically controlling knowledge integration to filter
+                                                    irrelevant facts. Finally, a graph-context contrastive learning objective aligns output representations
+                                                    with the relevant KG subgraph to enforce semantic consistency and ensure robust factual grounding.
+                                                    Experiments on the OpenDialKG dataset, a benchmark grounded in specific domains including movies,
+                                                    music, and sports, confirm the framework’s effectiveness, showing significant outperformance over
+                                                    strong baselines. A 6.14% improvement in ROUGE-L demonstrates effective noise suppression, as the
+                                                    model’s outputs align more closely with ground-truth responses. Furthermore, a high Entity Coverage
+                                                    Precision of 97.53% indicates the framework’s ability to resolve structural heterogeneity, confirming
+                                                    the accuracy of its fine-grained fusion. The model’s factual consistency is further corroborated by a
+                                                    3.60% gain on QuestEval and superior human evaluations. These evaluations affirmed its ability to
+                                                    generate coherent and relevant responses while mitigating hallucinations.
+
+
+
+1. Introduction                                                               (unverifiable) (Ji et al., 2022; Dziri et al., 2021b)—are partic-
+                                                                              ularly detrimental in dialogues that depend on a specific body
+     Factual hallucination is a critical barrier to deploying                 of knowledge for coherence and correctness. These issues
+Large Language Models in knowledge-intensive domains                          induce flawed reasoning chains, a vulnerability exacerbated
+requiring strict factual fidelity. In recent years, large lan-
+                                                                              in dialogues demanding precise, domain-specific knowledge
+guage models (LLMs) have shown significant momentum
+                                                                              (e.g., entertainment, history), as illustrated in Figure 1. This
+in development. Dialogue systems based on LLMs have                           limitation critically undermines the reliability of LLMs in
+demonstrated excellent performance and generalization ca-                     high-stakes domains like legal adjudication and medical
+pabilities, enabling them to generate fluent responses(Qian                   diagnosis. Consequently, it presents a major obstacle to their
+et al., 2023). This progress, driven by exponentially increased               safe and effective deployment.
+model size (Wei et al.) and resultant emergent capabilities
+(Bubeck et al., 2023), positions LLMs as a foundation for AGI
+and a central academic research focus (Wei et al., 2021; Zhao
+et al., 2023b). Although large language models (LLMs) excel
+at generating dialogue, their performance is constrained by a
+limited knowledge base(Lewis et al., 2020; Pan et al., 2023).
+Specifically, LLMs are prone to "hallucinations"—outputs
+that inaccurately represent the conversational history or
+external knowledge(Roller et al., 2020; Mielke et al., 2020;
+Ji et al., 2022). These factual hallucinations—classifiable
+as intrinsic (contradicting context/knowledge) or extrinsic
+    ⋆
+       CoG2 RH-LLM is short for Geometric Attention & Gated Mechanism
+with Contrastive object for Reducing Hallucination in Large Language          Fig. 1: An example of intrinsic and extrinsic hallucination in
+Models.                                                                       LLMs. The model’s response contains an intrinsic hallucination
+     ∗ Corresponding author
+                                                                              by incorrectly stating Greta Gerwig directed Oppenheimer (in
+         wxz2017@shu.edu.cn (X. Wang); liyuxuan2023@shu.edu.cn (Y. Li);       yellow), which directly contradicts the provided Knowledge
+ruishenliu@shu.edu.cn (R. Liu); email_wmx@shu.edu.cn (M. Wang);
+                                                                              Graph. It also exhibits extrinsic hallucination by inventing an
+luoxf@shu.edu.cn (X. Luo)
+       ORCID (s): 0000-0001-8218-3389 (X. Wang); 0009-0001-1173-745X (Y.
+                                                                              unverifiable box office figure (in pink), which is absent from
+Li); 0009-0006-6369-059X (R. Liu); 0009-0006-9296-5898 (M. Wang);             the KG.
+0000-0003-4577-9241 (X. Luo)
+
+
+
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                                             Page 1 of 12
+                                       X. Wang et al. / Expert Systems with Applications
+
+     Knowledge graphs (KGs), as structured knowledge                     precision of external knowledge fusion, and knowledge
+paradigms, offer a robust foundation for reasoning with their            gating mechanism to suppress irrelevant noise.
+explicit graph structure (Ji et al., 2020). Grounding LLMs
+in knowledge graphs tackles their deficiencies in complex              • We introduce a knowledge graph-context contrastive
+inference by providing a basis for structured reasoning,                 learning objective to enforce consistency between the
+which enhances dialogue generation (Pan et al., 2023; Luo                generated content and the knowledge graph.
+et al., 2023). Two primary technical approaches exist: direct          • Experiments on the OpenDialKG dataset demonstrate
+prompting, converting KG triples into natural language                   that our model, CoG2 RH-LLM, effectively mitigates
+prompts for LLMs (Baek et al., 2023; Wen et al., 2023), and              hallucinations and improves factual consistency by
+cross-modal fusion, designing fusion mechanisms between                  leveraging knowledge graphs.
+KG embeddings and LLM text embeddings (Ji et al., 2023;
+Tian et al., 2023). However, the structural mismatch between
+KGs and text hampers direct prompting (Ji et al., 2023), which     2. Related Work
+often discards crucial graph topology (Zhao et al., 2023a) and     2.1. Enhancing Large Language Models with
+induces intractable factual conflicts with the source knowl-
+                                                                        External Knowledge
+edge (Kang et al., 2022). Furthermore, mainstream cross-
+                                                                       A primary strategy to combat hallucinations and enhance
+modal fusion methods often directly concatenate KG triplets
+                                                                   the factual accuracy of Large Language Models (LLMs)
+(Ji et al., 2023; Tian et al., 2023) without explicitly modeling
+                                                                   in dialogue generation is to augment them with external
+their “head entity–relationship–tail entity” structure. This
+                                                                   knowledge, particularly Knowledge Graphs (KGs). The
+results in insufficient fine-grained semantic analysis of fused
+                                                                   central challenge in this endeavor lies in effectively bridging
+external knowledge, hinders capturing intra-triplet semantic
+                                                                   the inherent heterogeneity between structured graph data and
+dependencies, and introduces substantial noise unrelated to
+                                                                   unstructured conversational text. Early approaches to integrat-
+the dialogue context (Lee et al., 2024).
+                                                                   ing KGs explored various methods from direct prompting to
+     To address these issues, we propose a novel framework
+                                                                   embedding fusion (Yasunaga et al., 2021; Dziri et al., 2021a;
+that integrates external knowledge graph fusion, gated mecha-
+                                                                   Luo et al., 2024).
+nisms, and contrastive learning. Additionally, it introduces an
+                                                                       To better preserve graph structure, more advanced meth-
+innovative geometric weighted graph attention mechanism.
+                                                                   ods shifted towards fusing KG information at the embedding
+The main contributions are summarized as follows:(1) An
+                                                                   level. Frameworks like RHO (Ji et al., 2023) and GNP (Tian
+external knowledge fusion module based on a gating mech-
+                                                                   et al., 2023) represent significant progress in this direction.
+anism is designed. It dynamically controls the integration
+                                                                   RHO anchors textual representations to KG embeddings,
+of external knowledge, effectively suppressing interference
+                                                                   while GNP utilizes a Graph Neural Network (GNN) to
+from irrelevant noise.(2) A geometric weighted average graph
+                                                                   encode the KG before fusing it with the text via cross-modal
+attention mechanism is proposed. This mechanism adaptively
+                                                                   pooling (Ji et al., 2023; Tian et al., 2023). However, these
+assigns weights to triplets in the knowledge graph, enhancing
+                                                                   state-of-the-art fusion methods often treat knowledge triples
+knowledge base accuracy and mitigating hallucination caused
+                                                                   holistically, employing standard attention mechanisms that
+by irrelevant information.(3) Knowledge graph contrastive
+                                                                   overlook the distinct semantic roles of head entities, relations,
+learning objectives are introduced to encourage the model
+                                                                   and tail entities. This coarse-grained fusion limits the model’s
+to better distinguish relevant from irrelevant knowledge
+                                                                   ability to capture fine-grained semantic dependencies, leading
+representations. This significantly improves the consistency
+                                                                   to imprecise knowledge integration. To address this specific
+and credibility between generated content and the knowledge
+                                                                   gap, our work introduces a Geometric Weighted Average
+graph.
+                                                                   Graph Attention mechanism, which explicitly deconstructs
+     We evaluated our model’s performance on the OpenDi-
+                                                                   each triple and computes context-aware relevance for each
+alKG dataset, a benchmark for knowledge-grounded dialogue
+                                                                   component, enabling a more precise and structure-aware
+centered on specific domains such as movies, music, and
+                                                                   knowledge fusion.
+sports. The results indicate that our proposed method im-
+                                                                       Furthermore, a critical challenge often under-addressed
+proved the BLEU, ROUGE, and QuestEval scores by 0.192%,
+                                                                   by existing fusion mechanisms is the prevalence of noise.
+6.14%, and 3.60%, respectively.Manual evaluation further
+                                                                   Even a carefully selected knowledge subgraph may contain
+demonstrated superior performance in terms of context
+                                                                   triples that are irrelevant or distracting to the current con-
+relevance and knowledge consistency.Moreover, our method
+                                                                   versational turn. Models that attempt to integrate the entire
+achieved entity and relation coverage from the knowledge
+                                                                   subgraph context are susceptible to this noise, which can
+graph comparable to the baseline, while simultaneously
+                                                                   degrade the quality and factual consistency of the generated
+ensuring knowledge consistency.Ablation and parameter
+                                                                   response. To mitigate this, our framework incorporates a
+sensitivity analyses further validated the effectiveness and
+                                                                   knowledge gating mechanism. This module functions as an
+robustness of our method.
+                                                                   adaptive filter, dynamically learning to suppress the influence
+     Our contributions are as follows:
+                                                                   of irrelevant knowledge triples, thereby ensuring that only
+    • We propose two key mechanisms: a geometric weighted          the most pertinent information guides the generation process.
+      average graph attention mechanism to enhance the
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                        Page 2 of 12
+                                       X. Wang et al. / Expert Systems with Applications
+
+
+
+
+Fig. 2: The overall architecture of CoG²RH-LLM. First, the framework takes textual dialog and a structured knowledge subgraph
+as parallel inputs, converting them into contextual and KG embeddings. Next, the Knowledge-Augmentation Module deconstructs
+KG triples into their components (head, relation, tail) and computes a context-aware knowledge representation using a multi-head
+attention mechanism fused by a geometric mean. Finally, a gating mechanism filters the fused representation, which is then input
+to the LLM to generate the final response.
+
+
+
+2.2. Contrastive Learning                                          3. Methodology
+    Contrastive Learning (CL) (Chopra et al., 2005; Gao et al.,
+                                                                        In this section, we will firstly introduce the basic knowl-
+2021) has emerged as a powerful technique for improving
+                                                                   edge graph-enhanced LLM dialogue generation task in this
+the quality of text generation by discouraging undesirable
+                                                                   paper.
+properties such as content redundancy (Shirai et al., 2020),
+                                                                        Task statement. Knowledge graph-enhanced LLM
+monotonous expression (Li et al., 2020b), and logical incoher-
+                                                                   dialogue generation focuses on developing LLMs capable of
+ence (Li et al., 2020a). More recently, its application has been
+                                                                   utilizing both dialogue history and external knowledge graphs
+extended to specifically enhance the factual consistency of
+                                                                   as knowledge sources.In this task, each data sample consists
+generated content. For instance, studies (e.g., Cao and Wang
+                                                                   of a dialogue history 𝐻, comprising a set of utterances 𝑈
+(2021) (Cao and Wang, 2021)) have employed sentence-level
+                                                                   resulting from human-agent interactions.A multi-relational
+contrastive objectives to reduce hallucinations in abstractive
+                                                                   Knowledge Graph (KG), serving as an additional input, is
+summarization by training the model to distinguish between
+                                                                   defined as a directed graph  composed of a set of triplets,
+ground-truth and model-generated summaries.
+                                                                   𝑇 = ⟨[HEAD], [RELATION], [TAIL]⟩.The objective is to
+    However, these prior applications of CL for faithfulness
+                                                                   generate a faithful response , conditioned on both the
+primarily operate within a single modality (text-to-text),
+                                                                   dialogue history 𝐻 and a pertinent knowledge subgraph 𝐻 .
+contrasting a generated text against an unstructured source
+                                                                   This subgraph 𝐻 is a subset of the global KG , containing
+document (Cao and Wang, 2021). This approach does not
+                                                                   triplets semantically relevant to the dialogue history 𝐻.
+explicitly enforce alignment with structured knowledge
+                                                                        Then, we present CoG2 RH-LLM, a novel framework that
+sources like KGs, which present a more complex, cross-
+                                                                   enhances LLMs by fusing structured knowledge through three
+modal alignment challenge. Ensuring consistency with a
+                                                                   key components: a geometric weighted graph attention, a
+graph requires aligning the generated text not just with
+                                                                   knowledge gating module, and a cross-modal contrastive
+broad semantics, but with a set of discrete, structured facts.
+                                                                   learning objective.
+Our work addresses this challenge by proposing a graph-
+context contrastive learning objective. This objective operates
+                                                                   3.1. Overview of the Approach
+across modalities, explicitly training the model to align the
+                                                                        As established in the Introduction, the primary challenge
+embedding of its generated response with the corresponding
+                                                                   in integrating Knowledge Graphs (KGs) with Large Language
+structured KG subgraph. By pulling the representations of
+                                                                   Models (LLMs) lies in the inherent heterogeneity between
+correlated graph-response pairs closer together, our method
+                                                                   structured graph data and unstructured text. Conventional
+enforces a stricter and more granular factual grounding,
+                                                                   fusion methods often result in the loss of crucial structural
+directly improving the semantic consistency between the
+                                                                   information and the introduction of contextual noise, which
+dialogue and the knowledge source.
+                                                                   in turn causes factual inconsistencies and “hallucinations” in
+                                                                   the generated responses.
+                                                                        To effectively bridge this structural and semantic gap,
+                                                                   we propose CoG2 RH-LLM, a novel framework designed
+                                                                   to achieve a more precise and noise-aware fusion of KG
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                       Page 3 of 12
+                                       X. Wang et al. / Expert Systems with Applications
+
+knowledge. Our approach enhances the model’s fidelity and          structural properties of the knowledge graph and the textual
+reasoning through two primary contributions:                       content. Consequently, this approach limits the ability of
+                                                                   LLMs to effectively capture complex semantic associations
+    • For Fine-Grained Knowledge Fusion (Section 3.3):             within the knowledge graph.Therefore, to address this lim-
+      We introduce a novel Geometric Weighted Average              itation, we introduce knowledge graph embeddings as a
+      Graph Attention mechanism. Unlike methods that               “hard-prompt” enhancement for language representations in
+      treat KG triples as simple text, our mechanism explic-       knowledge fusion process. This strategy enables the simul-
+      itly deconstructs triples into their head-relation-tail      taneous utilization of both lexical and structured knowledge
+      components. This allows the model to capture fine-           information.
+      grained semantic dependencies and more accurately                 The knowledge fusion process encompasses three primary
+      identify contextually relevant knowledge. To comple-         stages: data preprocessing, local knowledge enhancement,
+      ment this, we integrate a knowledge gating module that       and global knowledge enhancement.These stages are detailed
+      dynamically regulates the flow of information from           as follows.
+      the KG, effectively mitigating the impact of irrelevant
+      knowledge and reducing noise.                                3.3.1. Data Preprocessing
+                                                                       During the data preprocessing stage, sets of entity men-
+    • For Enhancing Factual Consistency (Section 3.4): We          tions (𝐻 ) and relationship mentions (𝐻 ) are primarily
+      incorporate a graph-text contrastive learning objective      extracted from the dialogue history 𝐻 via an entity/relation
+      during training. This objective explicitly encourages        linking module. Subsequently, their corresponding Knowl-
+      the model to generate responses that are semantically        edge Graph embeddings are obtained.The specific process is
+      aligned with the provided knowledge subgraph. By             outlined as follows:
+      pulling the representation of the generated response
+      closer to its corresponding KG and pushing it away              1. An entity/relational linking module is implemented
+      from irrelevant ones, we enforce a stronger factual                using the open-source FLAIR tool.This module iden-
+      grounding and improve the overall consistency of the               tifies entity mentions(𝑒𝑚 ) within the dialogue history
+      output.                                                            𝐻 and links them to their corresponding entities(𝑒)
+                                                                         in the subgraph 𝐻 .Similarly, it identifies relational
+    Through this combination of structured attention, noise-             mentions(𝑟𝑚 ) and links them to their respective rela-
+gating, and consistency-enforcing training, CoG2 RH-LLM                  tional predicates(𝑟) in 𝐻 .
+effectively grounds the LLM in factual knowledge, signifi-
+cantly reducing hallucinations. The overall architecture of           2. The TransE algorithm is then utilized to learn KG
+our proposed framework is depicted in Figure 2. Next, we                 embeddings for both entities and relational predicates
+will present the details of our method.                                  from the global knowledge graph 1 .
+
+3.2. Input With Knowledge-based Task Prompt                        3.3.2. Local Knowledge Enhencement
+     Template                                                           Our approach to local knowledge enhancement is inspired
+    A prevalent strategy for constructing input for LLMs           by the concept of local knowledge grounding from Ji et al. (Ji
+involves directly concatenating all triples from the knowl-        et al., 2023).For each non-special token 𝑤 within the dialogue
+edge subgraph 𝐻 with the dialogue history 𝐻.In contrast,          history, its local knowledge enhancement vector 𝑣⃗𝑙𝑜𝑐𝑎𝑙 is
+this study adopts the prompt template design methodology           derived. This derivation utilizes both the entity/relational
+proposed by Ji et al. (Ji et al., 2023), aiming to guide the LLM   mention links (extracted from the dialogue history 𝐻 during
+in effectively utilizing external knowledge graphs for dialogue    data preprocessing) and the pre-computed KG embeddings.
+generation.The core of this approach involves converting the       The process is detailed as shown in the following Eqn. (1):
+structured knowledge subgraph 𝐻 into a textual sequence
+that is more amenable to modeling by the LLM.Specifically,                          ⎧ 𝑀 (𝑒⃗ )                 (      )
+                                                                                                       substr ( 𝑤, 𝐻 )
+                                                                                    ⎪   ( )
+we linearize the triples within 𝐻 to generate textual meta-              𝑣⃗local = ⎨ 𝑀 𝑟⃗            substr 𝑤, 𝐻                       (1)
+knowledge.This meta-knowledge is then integrated with the                           ⎪   0⃖⃗               otherwise
+dialogue history utterances 𝑈 into the template detailed                            ⎩
+below:Given the Knowledge: [𝙷𝙴𝙰𝙳]𝟷 < 𝚜𝚎𝚙 > [𝚁𝙴𝙻]𝟷                  Here, 𝑀(⋅) denotes a mapping function that projects Knowl-
+< 𝚜𝚎𝚙 > [𝚃𝙰𝙸𝙻]𝟷 < 𝚝𝚛𝚒𝚙𝚕𝚎 > [𝙷𝙴𝙰𝙳]𝟸 < 𝚜𝚎𝚙 > [𝚁𝙴𝙻]𝟸                  edge Graph vectors from the KG embedding space to the
+< 𝚜𝚎𝚙 > [𝚃𝙰𝙸𝙻]𝟸 … < 𝚞𝚜𝚎𝚛 > 𝚄1 <assistant> 𝚄2 …,where               token embedding
+<sep>,<triple>,<user> and <assistant> are special tokens.
+                                                                                     ( space)of the Large Language Model.The
+                                                                   function substr 𝑤, 𝐻 is a Boolean function.It returns true
+                                                                   if the current token 𝑤 is a substring of any entity mention
+3.3. Knowledge Fusion                                              within the set; otherwise, it returns false.Consequently, tokens
+    Although the knowledge subgraph 𝐻 is linearized using
+                                                                       1We employed TransE, implemented via the OpenKE toolkit, as the
+a knowledge-based prompt template and incorporated as
+                                                                   underlying algorithm for learning representations of the complete knowledge
+textual meta-knowledge, reliance solely on this textual format
+                                                                   graph . This selection was based on TransE’s established efficiency and
+does not fully address the heterogeneity between the inherent      simplicity as a KG representation learning method.
+
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                                Page 4 of 12
+                                           X. Wang et al. / Expert Systems with Applications
+
+associated with a specific entity or relational predicate                and 𝑇 for our attention mechanism.
+undergo local knowledge enhancement through the fusion of
+𝑣𝑙𝑜𝑐𝑎𝑙 with their original token embedding 𝑤.
+                                                                                       𝑐
+                                                                                𝑐 = 𝑊proj ⋅ [𝐯𝑐1 ⊕ 𝐯𝑐2 ⊕ ⋯ ⊕ 𝐯𝑐|𝑇 | ],          ∀𝑐 ∈ 𝐶     (4)
+
+                                                                         Where 𝐯𝑐𝑖 = 𝑀([component𝑐𝑖 ]).
+3.3.3. Global Knowledge Enhencement
+                                                                             To dynamically weigh the importance of different struc-
+     To address the insufficiency of isolated token-node
+                                                                         tural parts of the knowledge, we then compute component-
+relationships for multi-hop reasoning, we complement local
+                                                                         wise attention scores. Based on the previously formulated Key
+knowledge with global enhancement methods that compre-
+                                                                         matrices 𝑐 , we separately calculate the semantic correlation
+hensively incorporate the entire subgraph 𝐻 for a more
+                                                                         between the dialogue context and each component type (𝑐 ∈
+holistic contextual understanding. However, standard multi-
+                                                                         {HEAD, RELATION, TAIL}). This calculation is detailed
+head attention (Vaswani et al., 2017) fails to explicitly model
+                                                                         in Eqn. (5):
+the inherent “head entity-relationship-tail entity” structure
+of triples, limiting fine-grained semantic analysis during                                      (                     )
+external knowledge fusion. Therefore, we designed a Ge-                                             (𝐰𝑖 𝑊𝑄𝑐 )(𝑐 )𝑇
+ometric Weighted Average Graph Attention Mechanism.                             𝜶 = softmax
+                                                                                 𝑐
+                                                                                                         √                ,    ∀𝑐 ∈ 𝐶       (5)
+                                                                                                           𝑑𝑘
+This mechanism explicitly considers similarity between
+context tokens and each triple component (head entities,                     After obtaining the component-wise attention scores
+relations, and tail entities) to draw global dependencies                𝜶 𝐻 , 𝜶 𝑅 , and 𝜶 𝑇 , we fuse them to derive a single, unified
+between the dialogue history and a memory bank storing                   attention distribution. This fusion is achieved by calculating
+all knowledge triples in 𝐻 , thereby enabling finer-grained             their geometric mean, which balances the influence from the
+semantic integration.                                                    head entity, relation, and tail components. The final fused
+     To enable fine-grained interaction between the dialogue             attention score, 𝜶 fused , is computed as follows:
+context and the structured knowledge, our model processes
+the knowledge triples in a component-wise manner. We                                                ((                        )1∕3 )
+                                                                                𝜶 fused = softmax        𝜶𝐻 ⊙ 𝜶𝑅 ⊙ 𝜶𝑇                       (6)
+begin by defining the set of structural components 𝐶 =
+{HEAD, RELATION, TAIL}. For each triple 𝑇𝑖 in the                            where ⊙ denotes the element-wise Hadamard prod-
+knowledge subgraph 𝐻 , we obtain the embedding for each                 uct. This fused attention distribution is then used to com-
+of its components:                                                       pute a context-aware global knowledge vector, 𝑣⃗global . To
+                                                                         achieve this, we first construct a holistic knowledge ma-
+𝐡𝑖 = 𝑀([HEAD𝑖 ]),         𝐫𝑖 = 𝑀([REL𝑖 ]),        𝐭𝑖 = 𝑀([TAIL𝑖 ])       trix, holistic , by concatenating the previously computed
+                                                                  (2)    component-specific Key matrices along their feature dimen-
+                                                                         sion:
+where 𝑀(⋅) is the embedding lookup function, yielding                                        [                ]
+vectors 𝐡𝑖 , 𝐫𝑖 , 𝐭𝑖 for the head entity, relation, and tail entity of         holistic = 𝐻 ⊕ 𝑅 ⊕ 𝑇                           (7)
+the 𝑖-th triple, respectively.                                           where ⊕ here signifies concatenation along the last dimension
+    Next, we aggregate these component embeddings into                   (features). This results in a matrix holistic ∈ ℝ|𝑇𝐻 |×3𝑑𝑘 that
+three distinct sequences. Each sequence is then projected into           provides a comprehensive representation for each triple.
+the model’s working space using a component-specific pro-                     Finally, the fused attention score is applied to this holistic
+jection matrix 𝑊proj   𝑐 , resulting in the Key matrices required
+                                                                         matrix to yield the global knowledge vector:
+for our attention mechanism:                                                           {
+                                                                                         𝜶 fused ⋅ holistic if substr(𝑤, 𝐻 ∪ 𝐻 )
+              𝑐
+       𝑐 = 𝑊proj ⋅ [𝐯𝑐1 ⊕ 𝐯𝑐2 ⊕ ⋯ ⊕ 𝐯𝑐|𝑇 | ],        ∀𝑐 ∈ 𝐶      (3)       𝑣⃗global =                                                   (8)
+                                              𝐻                                          0⃖⃗                 otherwise
+where 𝐯𝑐𝑖 is the embedding of the 𝑐-th component of the                      In addition, we have designed a knowledge gating module
+𝑖-th triple (e.g., 𝐯𝐻
+                    𝑖 = 𝐡𝑖 ), and ⊕ denotes concatenation. This
+                                                                         to mitigate the noise impact from this external knowledge
+strategy preserves the structural distinctions of the knowledge          integration. The mechanism is described as follows:
+graph triples, preparing them for the subsequent component-                                     (             )
+                                                                                  𝑝 = Sigmoid 𝑊𝑔𝑎𝑡𝑒 𝐻global
+wise attention calculation.                                                                                                      (9)
+     Our processing strategy then deconstructs each triple to                   𝐻𝐼 = 𝑝𝐻 + (1 − 𝑝)𝐻global + 𝐻local
+enable a fine-grained analysis of its constituent parts. To
+                                                                         Where 𝐻 represents the original text embedding matrix
+generalize this process, we define a component set 𝐶 =
+                                                                         from the encoder. 𝐻local is the matrix enhanced with local
+{HEAD, RELATION, TAIL}. For each component type 𝑐 ∈
+                                                                         knowledge, while 𝐻global is the matrix of global knowledge
+𝐶, we aggregate the corresponding embedding vectors from
+                                                                         vectors (where each row corresponds to a 𝑣⃗global vector com-
+all triples, which were obtained during the data preprocessing
+                                                                         puted above). This gating mechanism adaptively combines
+phase. This results in three distinct sequences of vectors, each
+                                                                         the original token embeddings with their local and global
+corresponding to one component type. These sequences are
+                                                                         knowledge enhancements. The resulting matrix, 𝐻𝐼 , serves
+then used to construct the respective Key matrices 𝐻 , 𝑅 ,
+                                                                         as the final input to the subsequent Transformer layers.
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                                     Page 5 of 12
+                                          X. Wang et al. / Expert Systems with Applications
+
+
+
+
+Fig. 3: The Fine-Tuning Stage with Graph-Text Contrastive Learning. This mechanism aims to align the semantics between the
+generated response and the source knowledge graph. The representation of the LLM’s Decoder Hidden States h (representing the
+generated text) is pulled closer to the embedding of the correct Sub-Graph 𝐺𝐻 in the Representation Space. Simultaneously, it is
+pushed away from the embedding of a Negative Sub-Graph 𝐺𝐻      ′
+                                                                 , which contains corrupted factual information (e.g., an incorrect
+director or award). This process forces the model to generate responses that are highly consistent with the provided knowledge.
+
+
+
+3.4. Consistent Response Generation with                             4.1. Experiement Setup
+     Graph-Text Contrastive Learning                                 4.1.1. Dataset
+    To enhance consistency between responses generated                   OpenDialKG(Moon et al., 2019) is the benchmark
+by LLMs and knowledge subgraphs, we propose a graphic                dataset selected for our experiments. It comprises open-
+comparison learning method employed during the training              ended dialogues between two speakers that are grounded
+stage.As illustrated in Figure 3, this method aims to ensure         in a structured Knowledge Graph (KG). Crucially, and
+the model generates knowledge-consistent responses, given            in alignment with our research focus, these dialogues are
+a knowledge graph and the associated generated response              centered on several specific, knowledge-intensive domains,
+based on Eqn. (10).                                                  with a primary focus on movies, music, sports, and books.
+                                                                     This characteristic makes OpenDialKG an ideal testbed for
+                                                                     evaluating a model’s ability to maintain factual consistency
+                  1          exp(sim(𝜁 (𝒛), 𝜉(𝒉))∕𝜏)
+      cont =       log ∑        (   (         ( ′ )) )              in domain-specific conversations. The sequential, turn-based
+                  2       𝒉′ exp sim 𝜁 (𝒛), 𝜉 𝒉      ∕𝜏              nature of these dialogues can be conceptualized as traversals
+                                                              (10)
+                  1         exp(sim(𝜁 (𝒛), 𝜉(𝒉))∕𝜏)                  of paths within the KG. To our knowledge, OpenDialKG is
+              +     log ∑                  ′
+                                                          ,          the sole publicly available English corpus of open-ended
+                  2       𝒛′ exp (sim (𝜁 (𝒛 ) , 𝜉(𝒉)) ∕𝜏)
+                                                                     dialogues featuring such KG path annotations (Yu et al.,
+              ∑𝑚                                                     2020; Ni et al., 2021). Given its widespread use in previous
+Here,𝒛 = 𝑚1   𝑖=1 𝒛𝑖 denotes the mean representation of the
+                   ′
+                        ∑                                            studies for evaluating model effectiveness (Dziri et al., 2021b;
+subgraph 𝐻 ,and 𝒉 = 𝑇1 𝑇𝑡=1 𝒉𝑡 signifies the mean represen-         Zhou et al., 2021), its selection provides a strong basis for
+tation of the LLM decoder outputs.The term sim refers to the         comparison. In line with standard practice (Dziri et al., 2021b;
+cosine similarity,while 𝜁 and 𝜉 are linear projection layers,and     Liu et al., 2019; Ji et al., 2023), we filtered the dataset
+                                                            ∑
+𝜏 is a temperature parameter.Furthermore,the notations 𝒛′            to retain only dialogue samples annotated with a KG path
+     ∑
+and 𝒉′ represent summations over the respective negative             and subsequently partitioned it into training, validation, and
+samples within the current batch.By applying Eqn. 10,the             testing sets at a ratio of 8:1:1, respectively.
+LLM is trained to embed correlated pairs(i.e., positive exam-
+ples) more closely in the vector space, thereby encouraging          4.1.2. Baseline Models
+the generation of responses that are consistent with the given           To demonstrate the effectiveness of our proposed method,
+knowledge graph.                                                     we selected several strong baselines for comparison.For our
+                                                                     task, we fine-tuned Large Language Models such as GPT-
+4. Experiements                                                      2(Radford et al., 2019) and BART(Lewis et al., 2019).NPH
+                                                                     (Dziri et al., 2021b) is a post-processing technique that
+    In this section, we first set up the experiments and then        refines generated responses using entities retrieved from a
+present the results as well as analysises of our proposed            Knowledge Graph.Given NPH’s model-agnostic nature, we
+approach.                                                            applied it to both BART and GPT-2, resulting in baselines
+                                                                     denoted as BART+NPH and GPT-2+NPH.Furthermore,
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                         Page 6 of 12
+                                       X. Wang et al. / Expert Systems with Applications
+
+EARL(Zhou et al., 2021) employs external KGs for con-            be referenced from Dziri et al. (Dziri et al., 2021b), wherein
+versational generation without parameterizing specific entity    GPT2 is established as a robust baseline for analogous tasks.
+representations.KGBART(Liu et al., 2020), a KG-augmented         NPH(Dziri et al., 2021b) For NPH, we utilize the implemen-
+pretrained language model derived from BART, incorporates        tation from its official library, adopting the default hyperpa-
+relational information among concepts to enhance generative      rameters.Additionally, we leverage the graph embeddings
+commonsense reasoning.To our knowledge, RHO(Ji et al.,           and hallucination critic model provided by the same source.
+2023), when implemented on BART, achieves state-of-              EARL(Zhou et al., 2021) We obtained the best-generated
+the-art(DeepSeek-AI et al., 2025), an open-source LLM            responses directly from the authors of f Zhou et al. (Zhou et al.,
+designed for optimizing complex knowledge inference tasks,       2021). The quality of these responses was then evaluated
+demonstrates significantly improved multi-step logical infer-    using our metrics.
+ence capabilities. These improvements are attributed to its      DeepSeek-R1(DeepSeek-AI et al., 2025) Similarly, we ap-
+knowledge-enhanced training and efficient architectural de-      plied the DeepSeek-R1 model to the OpenDialKG test
+sign.Consequently, we selected DeepSeek-R1 for evaluation        set for response generation.For its application to this task,
+in this study.                                                   we employed a meticulously designed prompt engineering
+                                                                 strategy.Prior to inputting the dialogue history and meta-
+4.2. Implement Details                                           knowledge, we prepended the following prompt statements
+CoG2 RH-LLM For the proposed CoG2 RH-LLM model, we               to guide DeepSeek-R1’s dialogue generation:
+set the initial learning rate to 3e-5, employed the AdamW
+optimization algorithm combined with a linear learning rate            You are a dialogue assistant, responsible for
+scheduling strategy, fixed the maximum dialogue history                imitating the conversation between humans and
+length to 3 rounds, used a beam search strategy with a                 assistants. Your role depends on the last role
+beam width (B) of 4 for reply generation, and set the batch            in the dialogue history. If it is a user,
+size to 16. In order to optimize the model’s performance,              you play assistant, and vice versa, giving
+particularly for its graphic comparison learning component,            a brief response based on the corresponding
+we searched the hyperparameter 𝜏 from the set {0.2,0.3,                role, meta-knowledge and dialogue history.
+0.4, 0.5, 0.6}. We utilize the pre-trained BART-base model
+from the Huggingface Transformers library as the base
+LLM. All experiments were conducted on a single NVIDIA           4.3. Evaluation Settings
+GeForce RTX 3090 GPU, with a complete training run                   To provide a robust and multifaceted evaluation of our
+taking approximately 3 hours, depending on the specific          model’s generation capabilities, we designed a comprehen-
+hyperparameter configuration.                                    sive assessment framework that combines both automatic
+RHO(Ji et al., 2023) We implemented RHO by modifying             quantitative metrics and manual qualitative analysis.
+the source code from the official library and train the RHO
+                                                                 4.3.1. Automatic Evaluation
+model with their default hyperparameters:the batch size
+                                                                     Automatic metrics offer a scalable and objective measure
+16,the learning rate 3e-5,and the AdamW optimizer with
+                                                                 of model performance. We assess the generated responses
+a linear scheduler.We also generate responses using beam
+                                                                 from two primary aspects: generation quality and factual
+search(B=4).
+                                                                 faithfulness.
+BART(Lewis et al., 2019) We conduct the fine-tuning of a
+BART-base model employing the following hyperparameters:            1. Generation Quality. To evaluate the fundamental
+a batch size set to 16, a learning rate of 3e-5, and an AdamW          quality of the generated text, we employ two widely-
+optimizer equipped with a linear scheduler. Furthermore,               adopted, word-overlap-based metrics: BLEU and
+beam search with a beam width of 4 is implemented for                  ROUGE-L (Lin, 2004). These metrics measure the
+response generation.                                                   lexical similarity between the generated output and the
+KG-BART(Liu et al., 2020) In adapting the KG-BART model                ground-truth references.
+for our task, we modified the source code from the official
+library. Utilizing the pre-trained BART-base model, we              2. Factual Faithfulness. Recognizing that lexical-overlap
+trained the modified KG-BART with default hyperparameters:             metrics are insufficient for detecting factual inaccura-
+a batch size of 16, a learning rate of 1e-5, and the AdamW             cies or hallucinations (Ji et al., 2022), we incorporate
+optimizer with a linear scheduler. Additionally, beam search           two source-dependent metrics to specifically measure
+with a beam size of 4 was employed for generating responses.           the model’s faithfulness to the provided context:
+GPT-2(Radford et al., 2019) We performed the fine-tuning of
+the GPT2-small model utilizing the following hyperparameter                • QuestEval:This question-answering (QA) based
+configuration: a batch size of 16, a learning rate of 6.25e-5,               metric evaluates output faithfulness in text gener-
+and an AdamW optimizer with a linear decay scheduler. For                    ation tasks.It operates in two modes: a reference-
+response generation, we employed beam search with a beam                     dependent mode, assessing text against one or
+width of 4. Further details regarding the hyperparameters can                more ground-truth references, and a reference-
+                                                                             free mode, assessing text without any references.
+
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                      Page 7 of 12
+                                       X. Wang et al. / Expert Systems with Applications
+
+Table 1
+Automatic evaluation for CoG2 RH-LLM and baselines, where "RD", "RF", and "Pre." refer to reference-dependent, reference-free
+mode, and Precision, respectively.
+
+                                                                              QuestEval ↑       Entity Coverage (%)
+          Model                                      BLEU4 ↑ ROUGE-L ↑
+                                                                               RD          RF   Pre.     Recall     F1
+          EARL (Zhou et al., 2021)                      7.97       23.61      37.88    35.59    86.61 45.17        64.44
+          GPT2 (Radford et al., 2019)                  10.27       29.59      46.86    42.07    91.62 33.26        52.30
+          GPT2+NPH (Dziri et al., 2021b)               10.41       29.93      47.45    42.45    95.61 33.39        53.96
+          BART (Lewis et al., 2019)                    14.45       33.33      46.97    42.75    96.99 44.96        62.87
+          BART+NPH                                     15.53       34.99      47.94    43.56    96.44 44.12        65.98
+          KG-BART (Liu et al., 2020)                   13.72       33.31      45.55    42.86    97.68 45.63        64.58
+          RHO (Ji et al., 2023)                        20.77       39.54      48.41    43.84    97.20 45.63        67.40
+          DeepSeek-R1 (DeepSeek-AI et al., 2025)       10.70       26.59      44.98    44.00    63.40 82.87        68.34
+          CoG2 RH-LLM (Full Implementation)            20.81       41.97     49.96 45.42 97.53           44.59     66.83
+
+
+         • Entity Coverage:Building on prior work (Dziri         Table 2
+           et al., 2021b; Zhou et al., 2021), we designed this   Human Evaluation Results for CoG2 RH-LLM and
+           metric to quantify the extent to which entities in    baselines,where "LF","CC",and "KR" refer to language-
+           the generated response originate from the source      fluency,context coherence,and knowledge relevance,respectively.
+           inputs (i.e., the dialogue history and knowledge
+                                                                   Model              LF         CC           KR            Kappa
+           graph). To implement this, we first employ a
+           Named Entity Recognition (NER) model to ex-             RHO                1.890      1.723        1.263         56.11
+           tract entities from both the model’s output and         DeepSeek-R1        1.863      1.140        0.577         57.30
+           the source context. We then calculate Precision,        CoG2 RH-LLM        1.887      1.757        1.387         58.91
+           Recall, and the F1-score by treating the source
+           entities as the ground truth, thereby assessing the
+           faithfulness of the response at an entity level.            decrease in entity coverage, it effectively mitigates
+                                                                       noise from the external knowledge graph, thereby
+4.4. Comparison Study                                                  ensuring consistency between the generated response
+    To comprehensively evaluate the effectiveness of our               and the ground-truth response—a beneficial trade-off.
+proposed model, we conducted a detailed comparison against
+several advanced baseline models. As demonstrated in Table 1     4.4.2. Human Evaluation Results
+and Table 2, our method exhibits superior performance in             To verify whether the automatic evaluation results align
+both automatic metrics and human assessments.                    with human intuition, we further conducted a human evalua-
+                                                                 tion. The findings (see Table 2) indicate that while baseline
+4.4.1. Automatic Evaluation Results                              models like RHO, DeepSeek, and GateRH-LLM perform
+    In the automatic evaluation, our model outperforms all       comparably in Language Fluency, our method demonstrates
+baseline models across both overlap-based and hallucination-     a distinct advantage in the more challenging dimensions of
+aware metrics (see Table 1), underscoring the high quality of    Context Coherence and Knowledge Relevance.
+the text it generates.
+                                                                 4.5. Ablation Study
+    • Comparison with State-of-the-Art: Specifically,                To precisely quantify the contribution of each key compo-
+      compared to the current state-of-the-art (SOTA) model      nent in our model, we conducted a series of ablation studies.
+      RHO, our model achieves improvements of 0.192%,            We systematically removed the Gated Knowledge Fusion
+      6.14%, and 3.60% on BLEU, ROUGE-L, and QuestE-             (w/o Gate), the Geometric Average Weighted Graph Atten-
+      val (RF), respectively. Furthermore, its performance       tion (w/o Geo), and the Contrastive Learning module (w/o
+      also surpasses DeepSeek-R1, a leading open-source          Contrast). The results, presented in Table 3, demonstrate that
+      inference model.                                           each component plays an indispensable role, and their synergy
+    • Fidelity and Mechanism Analysis: In terms of entity        is critical for achieving optimal performance, particularly in
+      coverage, our method achieves performance compa-           generating faithful responses.
+      rable to the SOTA method. These results collectively
+                                                                     • Full Model Performance:Our complete model achieves
+      validate the efficacy of our geometric weighted graph
+                                                                       the best performance on key faithfulness metrics, in-
+      attention mechanism and graph-text contrastive learn-
+                                                                       cluding ROUGE-L (41.97) and QuestEval (45.42/49.96).
+      ing in enhancing the fidelity of large language model
+                                                                       This reflects a deliberate design choice to prioritize
+      responses to external knowledge graphs. Although
+                                                                       factual consistency over simple n-gram overlap with
+      the knowledge gating mechanism results in a slight
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                           Page 8 of 12
+                                           X. Wang et al. / Expert Systems with Applications
+
+Table 3
+Ablation Study Results for CoG2 RH-LLM
+                                     QuestEval Entity Coverage (%)
+Model               BLEU4 ROUGE-L
+                                     RF RD Pre. Recall       F1
+Ours (Full)          20.81   41.97   45.42 49.96 97.43 44.56   67.58
+   w/o Gate & 20.01          40.08   45.08 48.15 98.01 43.78   66.20
+Contrast     (Geo
+only)
+   w/o Geo & Con- 20.10      40.18   44.56 47.71 97.58 43.09   65.67
+trast (Gate only)
+   w/o Geo & Gate 20.15      39.72   44.05 48.16 97.60 44.94   67.25
+(Contrast only)
+   w/o Contrast 20.66        40.98   44.35 48.49 97.95 45.21   68.01
+(Geo + Gate)
+   w/o Gate (Geo 20.59       40.76   44.67 48.57 97.35 46.79   67.97
++ Contrast)
+   w/o Geo (Gate 21.19       39.94   43.47 47.50 97.51 43.22   65.89
++ Contrast)
+
+
+                                                                       Fig. 4: The effect of the contrastive learning temperature 𝜏 on
+        potentially hallucinatory reference texts (Ji et al.,          model performance.
+        2022).
+    • Impact of Geometric Attention (w/o Geo): Remov-
+                                                                       4.6.1. Effect of Temperature (𝜏)
+      ing the Geo module reveals its critical role. The variant
+                                                                           We evaluate the influence of 𝜏 by varying its value
+      with only Gate + Contrast excels at surface-level
+                                                                       within the range [0.2, 0.6], with the comprehensive results
+      matching, achieving the highest BLEU score (21.19).
+                                                                       presented in Figure 4. Our analysis yields the following key
+      However, its significant drop in faithfulness metrics
+                                                                       observations:
+      underscores that the Geo mechanism is essential for
+      providing fine-grained knowledge precision and pre-                  • Optimal Performance:The model’s performance ex-
+      venting factual deviations.                                            hibits a strong sensitivity to 𝜏, with most metrics
+    • Synergistic Effects of Component Combinations:The                      following a concave trend. The overall performance
+      interactions between modules reveal a powerful pro-                    peaks at 𝜏=0.5, where key indicators for both gen-
+      cessing cascade:                                                       eration quality and faithfulness—including ROUGE-
+                                                                             L (41.97), QuestEval-rf (45.42), and QuestEval-rd
+              – The Geo + Gate combination (w/o Contrast)                    (49.96)—simultaneously achieve their optimal values.
+                achieves the highest entity F1-score (68.01). This
+                suggests a two-step refinement process where Geo           • Trade-off at Low Temperatures:We observe a dis-
+                first enables precise entity selection, after which          tinct trade-off at lower temperature values. For instance,
+                Gate effectively filters out residual noise.                 at 𝜏=0.3, the model achieves the highest entity-level
+                                                                             recall (48.56) and F1-score (70.07). This suggests that
+              – Conversely, the Geo + Contrast combination (w/o              a lower temperature makes the contrastive loss overly
+                Gate) yields the highest entity recall (46.79).              strict, forcing the model to ground its generation more
+                In this setup, Contrast encourages a broader                 heavily in the provided entities. However, this comes
+                utilization of the knowledge graph, while Geo en-            at the cost of generation fluency, as reflected by the
+                sures that the incorporated information remains              lowest BLEU (18.45) and ROUGE-L (39.47) scores.
+                accurate.
+                                                                           In summary, this analysis highlights that the choice of 𝜏
+In summary, this study confirms that the Gate, Geo, and                entails a critical trade-off between strict knowledge grounding
+Contrast modules are not redundant. Instead, they make                 and overall generation quality. Our results demonstrate that
+unique and complementary contributions: Geo is crucial                 𝜏=0.5 strikes the most effective balance, enabling the model
+for refining precision, Contrast for ensuring representational         to accurately distinguish between relevant and irrelevant
+consistency, and Gate for controlling the final knowledge              knowledge without compromising textual fluency and faith-
+flow. Their collective synergy is what enables the generation          fulness. Therefore, we adopt 𝜏=0.5 as the default setting for
+of highly faithful dialogues.                                          all main experiments.
+4.6. Parameter Evaluation
+     In this section, we conduct a sensitivity analysis on the         5. Case Study
+key hyperparameter in our model: the temperature 𝜏 used in                 To intuitively demonstrate our model’s capability to inte-
+the contrastive learning objective. This parameter is crucial          grate external knowledge into a coherent dialogue response,
+as it governs the sharpness of the probability distribution over       we present an illustrative case from the OpendialKG test set
+knowledge samples, directly influencing the model’s ability            in Table 4. The table details the dialogue context, the relevant
+to distinguish between positive and negative examples.
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                           Page 9 of 12
+                                        X. Wang et al. / Expert Systems with Applications
+
+Table 4
+An example sampled from the Test dataset OpenDialKG
+
+  KG             History                   Golden                  RHO                 DeepSeek-R1           CoG2 RH-LLM
+  <The           <user> Hi there,          <user> Oh yeah,         <user> Who          The Perfect Game      <user> The
+  Perfect        do you have any           who was that            wrote The Perfect   is an excellent       Perfect Game
+  Game,          recommendations           written by again?       Game?               choice! It’s a        was written by J.
+  written        based on The Girl on                                                  thrilling and         Sterling right?
+  by, J.         the Train?                                                            thought-provoking
+  Sterling>                                                                            watch.
+                <assistant> The Girl
+                on the Train was a
+                docudrama. Another
+                good docudrama is
+                The Perfect Game.
+
+
+Table 5
+Cases of error analysis
+
+ Category         KG                         History                              Golden                  CoG²RH-LLM
+ No Full          <...Zombies,written        <user>Could you recommend            <assistant>Yes it’s a   <assistant>Yes, it
+ Coverage         by,Jane Austen>            something by Jane Austen?            parody and Regency      was written by Seth
+                  <...Zombies,written        <assistant>Yes I can. She wrote      romance. Seth           Grahame-Smith.
+                  by,Seth Grahame-Smith>     Sense and Sensibility, Pride         Grahame-Smith
+                                             and Prejudice and Zombies.           helped to write it.
+                                             <user>Oooh, Zombies...
+
+ Unnatural        <Young Adult,Produced      <user>Who else was in That           <assistant>I am not     <assistant>Charlize
+ Connection       by,Charlize Theron>        Thing You Do with him?               certain, but I know     Theron produced
+                  <Young Adult,directed      <assistant>Peter Scolari,            she produced Young      Young Adult, directed
+                  by,Jason Reitman>          Charlize Theron, and alex rocco      Adult                   by Jason Reitman
+                                             <user>Charlize Theron is a great
+                                             actress...
+
+
+knowledge subgraph, and the generated responses from our                   factually correct but incomplete, pointing to remaining
+model and two baseline methods.                                            challenges in the model’s ability to synthesize and
+    On the one hand, we can observe that CoG2 RH-LLM                       reason over the entire knowledge subgraph.
+effectively utilizes the provided knowledge triples. The gener-
+ated response is not only factually accurate according to the            • Unnatural Connection:This refers to instances where
+subgraph but is also contextually coherent and semantically                the logical link between the generated response and the
+aligned with the ground-truth response. This highlights our                preceding user utterance is weak. The model appears to
+model’s proficiency in grounding its generation in external                prioritize fidelity to the knowledge subgraph to such an
+facts while maintaining conversational relevance.                          extent that it occasionally compromises conversational
+    On the other hand, the responses from the baseline models              flexibility. This phenomenon suggests a potential trade-
+exhibit a clear lack of fidelity. As shown in the table, both              off between strict factual grounding and natural, diverse
+RHO and DeepSeek either ignore the crucial information                     conversation flow.
+within the knowledge subgraph or generate content that con-              Addressing this trade-off between response fidelity and
+tradicts it. This comparison underscores the effectiveness of        conversational flexibility remains a key challenge. Future
+our approach in improving factual consistency in knowledge-          work should therefore focus on developing mechanisms that
+grounded dialogue.                                                   can dynamically balance these two critical aspects of dialogue
+    Despite the significant improvements, we acknowledge             generation.
+that CoG2 RH-LLM does not completely eliminate hallucina-
+tions and still exhibits certain limitations. As illustrated in
+Table 5, we identify two primary shortcomings, consistent            6. Conclusion
+with observations from prior work (Ji et al., 2023):                     As sources of structured facts, Knowledge Graphs of-
+                                                                     fer a potent solution to LLM hallucinations, particularly
+    • No Full Coverage:This issue arises when the model’s            in domains where factual fidelity is paramount. However,
+      output fails to incorporate all the information present in     grounding dialogues in KGs is challenging due to two
+      the knowledge triples. The generated response may be           fundamental issues that hinder precise knowledge fusion:
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                       Page 10 of 12
+                                               X. Wang et al. / Expert Systems with Applications
+
+structural heterogeneity and information noise. To address                           CorpusID:233296059.
+these challenges, this paper presents a novel framework for                      Gao, T., Yao, X., Chen, D., 2021. SimCSE: Simple contrastive learning
+more faithful dialogue generation. Our framework addresses                           of sentence embeddings, in: Moens, M.F., Huang, X., Specia, L.,
+                                                                                     Yih, S.W.t. (Eds.), Proceedings of the 2021 Conference on Empirical
+these issues through three synergistic components. First, a                          Methods in Natural Language Processing, Association for Computational
+Geometric Weighted Average Graph Attention mechanism                                 Linguistics, Online and Punta Cana, Dominican Republic. pp. 6894–
+resolves structural heterogeneity by deconstructing KG triples                       6910. URL: https://aclanthology.org/2021.emnlp-main.552/, doi:10.
+for fine-grained fusion. This component alone yields a 0.83%                         18653/v1/2021.emnlp-main.552.
+
+gain in Entity Coverage Precision over the RHO baseline, val-                    Ji, S., Pan, S., Cambria, E., Marttinen, P., Yu, P.S., 2020. A survey on
+                                                                                     knowledge graphs: Representation, acquisition, and applications. IEEE
+idating its enhancement of structural understanding. Second,                         Transactions on Neural Networks and Learning Systems 33, 494–514.
+a knowledge gating mechanism combats information noise                               URL: https://api.semanticscholar.org/CorpusID:211010433.
+by dynamically filtering irrelevant facts. This mechanism                        Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang, Y., Chen,
+independently improves generation alignment, resulting in                            D., Dai, W., Madotto, A., Fung, P., 2022. Survey of hallucination in
+a 1.62% increase in ROUGE-L over the baseline. Finally,                              natural language generation. ACM Computing Surveys 55, 1 – 38. URL:
+                                                                                     https://api.semanticscholar.org/CorpusID:246652372.
+a graph-context contrastive learning objective reinforces                        Ji, Z., Liu, Z., Lee, N., Yu, T., Wilie, B., Zeng, M., Fung, P., 2023.
+semantic consistency. Its effectiveness in enforcing factual                         RHO: Reducing hallucination in open-domain dialogues with knowledge
+grounding is confirmed by a 0.48% improvement in the                                 grounding, in: Rogers, A., Boyd-Graber, J., Okazaki, N. (Eds.), Findings
+QuestEval score. Our framework achieves state-of-the-art                             of the Association for Computational Linguistics: ACL 2023, Associ-
+performance on the OpenDialKG benchmark, validating its                              ation for Computational Linguistics, Toronto, Canada. pp. 4504–4522.
+                                                                                     URL: https://aclanthology.org/2023.findings-acl.275/, doi:10.18653/
+efficacy in domain-specific dialogue generation. A 6.14%                             v1/2023.findings-acl.275.
+improvement in ROUGE-L indicates effective suppression                           Kang, M., Kwak, J.M., Baek, J., Hwang, S.J., 2022. Knowledge-
+of information noise. Furthermore, a high Entity Coverage                            consistent dialogue generation with knowledge graphs. URL: https:
+Precision of 97.53% demonstrates the framework’s ability to                          //api.semanticscholar.org/CorpusID:252760721.
+
+resolve structural heterogeneity. The framework’s effective-                     Lee, J., Wang, Y., Li, J., Zhang, M., 2024. Multimodal reasoning with
+                                                                                     multimodal knowledge graph, in: Ku, L.W., Martins, A., Srikumar, V.
+ness in mitigating factual hallucinations is confirmed by both                       (Eds.), Proceedings of the 62nd Annual Meeting of the Association
+strong automatic metrics and superior human evaluations of                           for Computational Linguistics (Volume 1: Long Papers), Association
+coherence and knowledge relevance.                                                   for Computational Linguistics, Bangkok, Thailand. pp. 10767–10782.
+                                                                                     URL: https://aclanthology.org/2024.acl-long.579/, doi:10.18653/v1/
+                                                                                     2024.acl-long.579.
+References                                                                       Lewis, M., Liu, Y., Goyal, N., Ghazvininejad, M., rahman Mohamed, A.,
+                                                                                     Levy, O., Stoyanov, V., Zettlemoyer, L., 2019. Bart: Denoising sequence-
+Baek, J., Aji, A.F., Saffari, A., 2023. Knowledge-augmented language
+                                                                                     to-sequence pre-training for natural language generation, translation,
+  model prompting for zero-shot knowledge graph question answering.
+                                                                                     and comprehension, in: Annual Meeting of the Association for Compu-
+  Proceedings of the First Workshop on Matching From Unstructured and
+                                                                                     tational Linguistics. URL: https://api.semanticscholar.org/CorpusID:
+  Structured Data (MATCHING 2023) URL: https://api.semanticscholar.
+                                                                                     204960716.
+  org/CorpusID:260063238.
+                                                                                 Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N.,
+Bubeck, S., Chadrasekaran, V., Eldan, R., Gehrke, J., Horvitz, E., Kamar, E.,
+                                                                                     Kuttler, H., Lewis, M., tau Yih, W., Rocktäschel, T., Riedel, S., Kiela,
+  Lee, P., Lee, Y.T., Li, Y., Lundberg, S., et al., 2023. Sparks of artificial
+                                                                                     D., 2020. Retrieval-augmented generation for knowledge-intensive nlp
+  general intelligence: Early experiments with gpt-4.
+                                                                                     tasks. ArXiv abs/2005.11401. URL: https://api.semanticscholar.org/
+Cao, S., Wang, L., 2021. CLIFF: Contrastive learning for improving
+                                                                                     CorpusID:218869575.
+  faithfulness and factuality in abstractive summarization, in: Moens, M.F.,
+                                                                                 Li, M., Roller, S., Kulikov, I., Welleck, S., Boureau, Y.L., Cho, K., Weston,
+  Huang, X., Specia, L., Yih, S.W.t. (Eds.), Proceedings of the 2021
+                                                                                     J., 2020a. Don’t say that! making inconsistent dialogue unlikely with
+  Conference on Empirical Methods in Natural Language Processing,
+                                                                                     unlikelihood training, in: Jurafsky, D., Chai, J., Schluter, N., Tetreault, J.
+  Association for Computational Linguistics, Online and Punta Cana,
+                                                                                     (Eds.), Proceedings of the 58th Annual Meeting of the Association for
+  Dominican Republic. pp. 6633–6649. URL: https://aclanthology.org/
+                                                                                     Computational Linguistics, Association for Computational Linguistics,
+  2021.emnlp-main.532/, doi:10.18653/v1/2021.emnlp-main.532.
+                                                                                     Online. pp. 4715–4728. URL: https://aclanthology.org/2020.acl-main.
+Chopra, S., Hadsell, R., LeCun, Y., 2005. Learning a similarity metric
+                                                                                     428/, doi:10.18653/v1/2020.acl-main.428.
+  discriminatively, with application to face verification. 2005 IEEE Com-
+                                                                                 Li, X., Li, P., Wang, Y., Liu, X., Lam, W., 2020b. Enhancing dialogue genera-
+  puter Society Conference on Computer Vision and Pattern Recognition
+                                                                                     tion via multi-level contrastive learning. arXiv preprint arXiv:2009.09147
+  (CVPR’05) 1, 539–546 vol. 1. URL: https://api.semanticscholar.org/
+                                                                                     .
+  CorpusID:5555257.
+                                                                                 Lin, C.Y., 2004. Rouge: A package for automatic evaluation of summaries,
+DeepSeek-AI, Guo, D., Yang, D., Zhang, H., Song, J.M., Zhang, R., Xu,
+                                                                                     in: Annual Meeting of the Association for Computational Linguistics.
+  R., Zhu, Q., Ma, S., Wang, P., Bi, X., ..., Zhang, Z., 2025. Deepseek-r1:
+                                                                                     URL: https://api.semanticscholar.org/CorpusID:964287.
+  Incentivizing reasoning capability in llms via reinforcement learning.
+                                                                                 Liu, Y., Wan, Y., He, L., Peng, H., Yu, P.S., 2020. Kg-bart: Knowledge
+  arXiv preprint arXiv:2501.12948 .
+                                                                                     graph-augmented bart for generative commonsense reasoning. ArXiv
+Dziri, N., Madotto, A., Zaïane, O., Bose, A.J., 2021a. Neural path hunter:
+                                                                                     abs/2009.12677.        URL: https://api.semanticscholar.org/CorpusID:
+  Reducing hallucination in dialogue systems via path grounding, in:
+                                                                                     221970785.
+  Moens, M.F., Huang, X., Specia, L., Yih, S.W.t. (Eds.), Proceedings
+                                                                                 Liu, Z., Niu, Z.Y., Wu, H., Wang, H., 2019. Knowledge aware conversation
+  of the 2021 Conference on Empirical Methods in Natural Language
+                                                                                     generation with explainable reasoning over augmented graphs, in:
+  Processing, Association for Computational Linguistics, Online and Punta
+                                                                                     Conference on Empirical Methods in Natural Language Processing. URL:
+  Cana, Dominican Republic. pp. 2197–2214. URL: https://aclanthology.
+                                                                                     https://api.semanticscholar.org/CorpusID:121303947.
+  org/2021.emnlp-main.168/, doi:10.18653/v1/2021.emnlp-main.168.
+                                                                                 Luo, L., Ju, J., Xiong, B., Li, Y.F., Haffari, G., Pan, S., 2023. Chatrule:
+Dziri, N., Madotto, A., Zaiane, O.R., Bose, A., 2021b. Neural path
+                                                                                     Mining logical rules with large language models for knowledge graph
+  hunter: Reducing hallucination in dialogue systems via path ground-
+                                                                                     reasoning. ArXiv abs/2309.01538. URL: https://api.semanticscholar.
+  ing. ArXiv abs/2104.08455. URL: https://api.semanticscholar.org/
+
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                                                 Page 11 of 12
+                                                 X. Wang et al. / Expert Systems with Applications
+
+   org/CorpusID:261530825.                                                         Zhao, F., Zou, H., Yan, C., 2023a. Structure-aware knowledge graph-to-
+Luo, L., Li, Y.F., Haffari, G., Pan, S., 2024. Reasoning on graphs: Faithful         text generation with planning selection and similarity distinction, in:
+   and interpretable large language model reasoning, in: International               Conference on Empirical Methods in Natural Language Processing. URL:
+   Conference on Learning Representations (ICLR). URL: https://                      https://api.semanticscholar.org/CorpusID:266163864.
+   openreview.net/pdf?id=ZGNWW7xZ6Q.                                               Zhao, W.X., Zhou, K., Li, J., Tang, T., Wang, X., Hou, Y., Min, Y., Zhang,
+Mielke, S.J., Szlam, A., Dinan, E., Boureau, Y.L., 2020. Reducing                    B., Zhang, J., Dong, Z., Du, Y., Yang, C., Chen, Y., Chen, Z., Jiang, J.,
+   conversational agents’ overconfidence through linguistic calibration.             Ren, R., Li, Y., Tang, X., Liu, Z., Liu, P., Nie, J., rong Wen, J., 2023b.
+   Transactions of the Association for Computational Linguistics 10, 857–            A survey of large language models. ArXiv abs/2303.18223. URL:
+   872. URL: https://api.semanticscholar.org/CorpusID:250073258.                     https://api.semanticscholar.org/CorpusID:257900969.
+Moon, S., Shah, P., Kumar, A., Subba, R., 2019. Opendialkg: Explainable            Zhou, H., Huang, M., Liu, Y., Chen, W., Zhu, X., 2021. Earl: Informative
+   conversational reasoning with attention-based walks over knowledge                knowledge-grounded conversation generation with entity-agnostic rep-
+   graphs, in: Annual Meeting of the Association for Computational Lin-              resentation learning, in: Conference on Empirical Methods in Natural
+   guistics. URL: https://api.semanticscholar.org/CorpusID:196176000.                Language Processing. URL: https://api.semanticscholar.org/CorpusID:
+Ni, J., Young, T., Pandelea, V., Xue, F., Adiga, V.V., Cambria, E., 2021.            243865401.
+   Recent advances in deep learning based dialogue systems: a systematic
+   survey. Artificial Intelligence Review 56, 3055–3155. URL: https:
+   //api.semanticscholar.org/CorpusID:234342691.
+Pan, S., Luo, L., Wang, Y., Chen, C., Wang, J., Wu, X., 2023. Unifying
+   large language models and knowledge graphs: A roadmap. IEEE
+   Transactions on Knowledge and Data Engineering 36, 3580–3599. URL:
+   https://api.semanticscholar.org/CorpusID:259165563.
+Qian, Y., Zhang, W., Liu, T., 2023. Harnessing the power of large
+   language models for empathetic response generation: Empirical in-
+   vestigations and improvements, in: Bouamor, H., Pino, J., Bali, K.
+   (Eds.), Findings of the Association for Computational Linguistics:
+   EMNLP 2023, Association for Computational Linguistics, Singapore. pp.
+   6516–6528. URL: https://aclanthology.org/2023.findings-emnlp.433/,
+   doi:10.18653/v1/2023.findings-emnlp.433.
+Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., Sutskever, I., 2019.
+   Language models are unsupervised multitask learners. URL: https:
+   //api.semanticscholar.org/CorpusID:160025533.
+Roller, S., Dinan, E., Goyal, N., Ju, D., Williamson, M., Liu, Y., Xu, J.,
+   Ott, M., Shuster, K., Smith, E.M., Boureau, Y.L., Weston, J., 2020.
+   Recipes for building an open-domain chatbot, in: Conference of the
+   European Chapter of the Association for Computational Linguistics. URL:
+   https://api.semanticscholar.org/CorpusID:216562425.
+Shirai, K., Hashimoto, K., Eriguchi, A., Ninomiya, T., Mori, S., 2020.
+   Neural text generation with artificial negative examples. arXiv preprint
+   arXiv:2012.14124 .
+Tian, Y., Song, H., Wang, Z., Wang, H., Hu, Z., Wang, F., Chawla, N.,
+   Xu, P., 2023. Graph neural prompting with large language models,
+   in: AAAI Conference on Artificial Intelligence. URL: https://api.
+   semanticscholar.org/CorpusID:263152125.
+Vaswani, A., Shazeer, N.M., Parmar, N., Uszkoreit, J., Jones, L., Gomez,
+   A.N., Kaiser, L., Polosukhin, I., 2017. Attention is all you need, in: Neural
+   Information Processing Systems. URL: https://api.semanticscholar.
+   org/CorpusID:13756489.
+Wei, J., Bosma, M., Zhao, V., Guu, K., Yu, A.W., Lester, B., Du, N.,
+   Dai, A.M., Le, Q.V., 2021. Finetuned language models are zero-shot
+   learners. ArXiv abs/2109.01652. URL: https://api.semanticscholar.
+   org/CorpusID:237416585.
+Wei, J., Tay, Y., Bommasani, R., Raffel, C., Zoph, B., Borgeaud, S.,
+   Yogatama, D., Bosma, M., Zhou, D., Metzler, D., et al., . Emergent
+   abilities of large language models. Transactions on Machine Learning
+   Research .
+Wen, Y., Wang, Z., Sun, J., 2023. Mindmap: Knowledge graph prompting
+   sparks graph of thoughts in large language models, in: Annual Meeting
+   of the Association for Computational Linguistics. URL: https://api.
+   semanticscholar.org/CorpusID:261048726.
+Yasunaga, M., Ren, H., Bosselut, A., Liang, P., Leskovec, J., 2021. Qa-gnn:
+   Reasoning with language models and knowledge graphs for question
+   answering, in: North American Chapter of the Association for Compu-
+   tational Linguistics. URL: https://api.semanticscholar.org/CorpusID:
+   233219869.
+Yu, W., Yu, W., Zhu, C., Li, Z., Hu, Z., Wang, Q., Ji, H., Jiang, M., 2020. A
+   survey of knowledge-enhanced text generation. ACM Computing Surveys
+   54, 1 – 38. URL: https://api.semanticscholar.org/CorpusID:222272210.
+
+
+
+
+X. Wang et al.: Preprint submitted to Elsevier                                                                                               Page 12 of 12
+

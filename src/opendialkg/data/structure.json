@@ -1,0 +1,30 @@
+/*message*/
+[
+  {"message": "Do you like Iron Man", "type": "chat", "sender": "user"},
+  {"metadata":
+      {
+        "path": [0.0, [["Iron Man", "starred_actors", "Robert Downey Jr."]], "Iron Man is starring Robert Downey Jr."]},
+    "type": "action",
+    "sender": "assistant",
+    "action_id": "kgwalk/choose_path"
+  },
+  {"message": "Sure do! Robert Downey Jr. is a favorite.", "type": "chat", "sender": "assistant"},
+  {"metadata":
+  {
+    "path": [-0.5, [["Robert Downey Jr.", "~starred_actors", "Zodiac (Crime Fiction Film)"]], "Robert Downey Jr. starred in Zodiac (Crime Fiction Film)"]
+  },
+    "type": "action",
+    "sender": "user",
+    "action_id": "kgwalk/choose_path"
+  },
+  {"message": "Yes i like him too did you know he also was in Zodiac a crime fiction film.", "type": "chat", "sender": "user"},
+  {"metadata": {"path": [0.0, [["Zodiac (Crime Fiction Film)", "starred_actors", "Jake Gyllenhaal"]], "Zodiac (Crime Fiction Film) is starring Jake Gyllenhaal"]}, "type": "action", "sender": "assistant", "action_id": "kgwalk/choose_path"},
+  {"message": "I like crime fiction! Didn't know RDJ was in there. Jake Gyllenhaal starred as well.", "type": "chat", "sender": "assistant"},
+  {"metadata": {"path": [0.0, [["Jake Gyllenhaal", "~starred_actors", "End of Watch"], ["End of Watch", "written_by", "David Ayer"]], "Jake Gyllenhaal starred in End of Watch. End of Watch is written by David Ayer"]}, "type": "action", "sender": "user", "action_id": "kgwalk/choose_path"},
+  {"message": "So he did he also starred in End of Watch have you ever seen that movie?", "type": "chat", "sender": "user"}, {"metadata": {"path": [3.0, [["End of Watch", "has_genre", "Thriller"]], "End of Watch has genre Thriller"]}, "type": "action", "sender": "assistant", "action_id": "kgwalk/choose_path"},
+  {"message": "Yes I have! I like films directed by David Ayer. How about you?", "type": "chat", "sender": "assistant"},
+  {"message": "I have not what genre is End of Watch", "type": "chat", "sender": "user"},
+  {"message": "It's a thriller and crime fiction as well.", "type": "chat", "sender": "assistant"},
+  {"message": "I will make sure to check it out I like thrillers thank you", "type": "chat", "sender": "user"},
+  {"message": "Welcome!", "type": "chat", "sender": "assistant"}
+]

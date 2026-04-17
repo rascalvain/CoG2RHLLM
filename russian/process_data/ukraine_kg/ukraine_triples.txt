@@ -1,0 +1,868 @@
+Donald Trump	INTENDS_TO	Viktor Orban
+Yevgeny Ivanov	INTENDS_TO	new world record
+losses	~OCCURRED_ON	pressure
+Ongoing conflict	LOCATED_IN	Ukraine
+Deal	IS_IDENTIFIED_AS	supposed
+Russia's nearly three-year invasion	~INTENDS_TO	peace talks
+Iran	HAS_QUANTITY	12-day war with Israel
+European nations	LOCATED_IN	high alert
+Poland	CUT_TIES	last Russian consulate
+Julianne Smith	LEADER_OR_OFFICIAL_OF	NATO
+Oil terminal	ATTACKED	Ukrainian forces
+Kremlin	ATTACKED	full-scale invasion of Ukraine
+Genocide against Ukrainian people	OCCURRED_ON	Russia's full-scale invasion of Ukraine
+White House	LOCATED_IN	sanctions
+10 vehicles	IS_IDENTIFIED_AS	Dachne village
+Novgorod	IS_IDENTIFIED_AS	city
+Unarmed drones	INVESTIGATED	military bases in Western Europe
+Nicolas Sarkozy	IS_IDENTIFIED_AS	Former French President
+Russia	~FAILED_TO	City
+Russian attacks	REQUESTED	Ukraine
+Western sanctions	IMPOSED_SANCTIONS	Russia
+US pressure	INTENDS_TO	Hungary off Russian oil
+Donald Trump	SUPPORTED_OR_ALLIED	Melania Trump's work
+Vincent Mumo Nzilani	~ANNOUNCED_STATEMENT	Article
+Defence committee	PRODUCED_OR_BUILT	critical assessment
+Human rights groups	ANNOUNCED_STATEMENT	Kazakhstan's anti-LGBTQ legislation will not protect children
+Moscow's war machine	PRODUCED_OR_BUILT	Luhansk region
+Many	ANNOUNCED_STATEMENT	India needs to do more
+US service members	~REQUESTED	group of Democrats
+Integrity in energy sector	IS_IDENTIFIED_AS	absolute priority
+Emma Little-Pengelly	IS_IDENTIFIED_AS	Deputy First Minister
+Russian governor of Krasnodar Krai	~IS_IDENTIFIED_AS	Veniamin Kondratiev
+Beijing	ANNOUNCED_STATEMENT	aiding Russia's war effort
+Donald Trump	MEMBER_OR_EMPLOYEE_OF	Viktor Orban
+Pokrovsk	LOCATED_IN	eastern Ukraine
+Nathan Gill	LEADER_OR_OFFICIAL_OF	Reform UK in Wales
+Volodymyr Zelensky	LOCATED_IN	Washington
+Damage to railway line	OCCURRED_ON	weekend
+hundreds of people	KILLED	protests
+Incursions by Russian drones	CAUSED	upgrade air defences
+Vladimir Putin	~COMMUNICATED_WITH	Melania Trump
+Donald Trump	INTENDS_TO	Xi Jinping
+UN Independent International Commission of Inquiry on Ukraine	PRODUCED_OR_BUILT	report
+Neptune cruise missiles	ATTACKED	Russian targets
+Russia	ANNOUNCED_STATEMENT	a deal
+pushback	~PROVIDED_AID	world-first law
+Navalny's transfer	LOCATED_IN	December
+Ron Popeski	ANNOUNCED_STATEMENT	this story
+Funds from Libya	AGREED_TO	diplomatic favors
+the party	ANNOUNCED_STATEMENT	representative to Catherine Connolly's inauguration
+Police	ANNOUNCED_STATEMENT	attack on church
+Advocates	THREATENED	Melania Trump's involvement
+Viktor Orban	MET_WITH	Donald Trump
+Hungary	~SUPPORTED_OR_ALLIED	Donald Trump
+arming Ukraine	~IS_IDENTIFIED_AS	US
+Sino	~IS_IDENTIFIED_AS	Polina Sychova
+peace proposal	INTENDS_TO	Ukraine ceding eastern Donbas region
+Ukraine's strike on Novorossiysk	COMMUNICATED_WITH	Russian terror
+Andrew Osborn	~LOCATED_IN	Editing
+Thomson Reuters Trust Principles	IS_IDENTIFIED_AS	Standards
+Lithuania's foreign ministry	ANNOUNCED_STATEMENT	border closure
+Second anniversary	IS_IDENTIFIED_AS	the offensive
+European leaders	INTENDS_TO	increase pressure on Moscow
+Rheinmetall	~LEADER_OR_OFFICIAL_OF	Armin Papperger
+Power outage	CAUSED	strikes on Ukraine's energy infrastructure
+Prospective locations	IS_IDENTIFIED_AS	six new munitions factories
+Julie Inman Grant	THREATENED	free speech in America
+Countries	IS_IDENTIFIED_AS	sanctions against Russian oil companies
+Plan	IS_IDENTIFIED_AS	fighting off prison convoy
+Burevestnik cruise missile	~USED_WEAPON	Russia
+US President	~IS_IDENTIFIED_AS	Donald Trump
+Veniamin Mazzherin	KILLED	at the weekend
+More than 30 people	ACCUSED_OF	public safety offences
+Russian defence ministry	ANNOUNCED_STATEMENT	Russian forces shot down 79 Ukrainian drones
+Abduction of 25 girls	MET_WITH	attack on church
+former sailor	~TRANSPORTED	Attack
+former sailor	DEPLOYED_MILITARY	Serpukhov
+Armin Papperger	PROVIDED_AID	target could be met in five years
+Report by MPs	LOCATED_IN	UK lacks plan to defend itself
+Gordon Lyons	IS_IDENTIFIED_AS	Communities Minister
+Britain's statement	THREATENED	sharing Donald Trump's goal
+massive overnight attack	ATTACKED	western areas of Ukraine
+security guarantees	LOCATED_IN	United States
+Russia's investigation	IS_IDENTIFIED_AS	starting preparations for nuclear testing
+Gen Carsten Breuer	ANNOUNCED_STATEMENT	Western Nato alliance to prepare for Russian attack
+Many regions of Ukraine	IS_IDENTIFIED_AS	power
+War	LOCATED_IN	Ukraine
+former sailor	CUT_TIES	Freedom of Russia Legion
+Ternopil	~ATTACKED	Russian drone and missile attack
+The Kremlin's statement	THREATENED	continued contacts with United States
+Displaced Palestinians	CRITICIZED_OR_OPPOSED	life-threatening conditions
+largest missile and drone attack	ATTACKED	Kyiv
+US president	IS_IDENTIFIED_AS	Donald Trump
+boundary markers	COMPARED_TO	ceasefire deal
+Ari Gisell	ANNOUNCED_STATEMENT	Ari Gisell's boyfriend
+The Kremlin's statement	THREATENED	no new developments on peace plan
+Emma Little-Pengelly	MET_WITH	Catherine Connolly's inauguration
+Nathan Gill	CRITICIZED_OR_OPPOSED	prison
+Ongoing conflict in Ukraine	ANNOUNCED_STATEMENT	world's "first drone war"
+support	~IS_IDENTIFIED_AS	uncertainty
+Memorial mass	LOCATED_IN	23 November
+Trump administration	~LEADER_OR_OFFICIAL_OF	peace proposal
+Nato members	AGREED_TO	raise defence spending
+Donald Tusk	LOCATED_IN	scene of an explosion near Mika
+Umaro Sissoco Embalo	CRITICIZED_OR_OPPOSED	11 challengers
+Nathan Gill	IS_IDENTIFIED_AS	prominent MEP
+Professional Tennis Players' Association	HAS_QUANTITY	settlement
+eastern Donetsk region	IS_IDENTIFIED_AS	Ukraine
+Dmitry Peskov	ANNOUNCED_STATEMENT	CNN
+peace proposal	INTENDS_TO	Ukraine limiting size of its military
+Viktor Orban	IS_IDENTIFIED_AS	Hungary's Prime Minister
+Hit by Russia missile	OCCURRED_ON	Wednesday
+Scenes	PRODUCED_OR_BUILT	outskirts of Rio de Janeiro
+US	PROVIDED_AID	Tomahawk missiles
+Dylan Earl	ARRESTED_OR_DETAINED	17 years
+peace talks	INTENDS_TO	Russia's nearly three-year invasion
+Christiane	MET_WITH	Polina Sychova
+Donald Trump	REFUSED	long-range missiles issue
+Volodymyr Zelensky	MET_WITH	White House meeting
+uptick in civilian deaths	OCCURRED_ON	pressing in
+Trump-Zelensky meeting	OCCURRED_ON	Trump-Putin phone call
+largest missile and drone attack	CAUSED	dozens injured
+DeepState website	ANNOUNCED_STATEMENT	pontoon construction
+Reported strikes	OCCURRED_ON	military-led government wary of ceasefire
+Advocates	SUPPORTED_OR_ALLIED	children's return
+Admiral Giuseppe Cavo Dragone	ANNOUNCED_STATEMENT	sitting and talking
+Russia's conditions for peace deal	OCCURRED_ON	Putin in 2024
+news	REQUESTED	starting the day
+Ternopil	~LOCATED_IN	Apartment building
+City	IS_IDENTIFIED_AS	strategically important
+nuclear rhetoric	~IS_IDENTIFIED_AS	exclusive interview
+The plan	LEADER_OR_OFFICIAL_OF	Russian officials
+Donald Trump	INTENDS_TO	win election
+Kazakhstan's lower parliament	IS_IDENTIFIED_AS	Majilis
+Kyiv	MET_WITH	peace talks
+Ukraine	IS_IDENTIFIED_AS	The plan
+Areas along front line	IS_IDENTIFIED_AS	Russia's war with Ukraine
+America's role	LOCATED_IN	war
+Veniamin Kondratiev	ANNOUNCED_STATEMENT	fragments hit oil depot
+Navalny's transfer	LOCATED_IN	Arctic prison
+pontoon construction	~ANNOUNCED_STATEMENT	DeepState website
+North Korea	IS_IDENTIFIED_AS	A House of Dynamite
+Inciting violence	IS_IDENTIFIED_AS	Nnamdi Kanu's campaign for separate state
+Russia's full-scale invasion of Ukraine	LOCATED_IN	2022
+Donald Trump	ANNOUNCED_STATEMENT	estimates of abducted children
+TV interviews	SUPPORTED_OR_ALLIED	key Putin ally
+Viktor Orban	PROVIDED_AID	exemption from US sanctions
+boundary markers	LOCATED_IN	520m deeper inside Gaza
+Dozens of small hot-air balloons	INVADED_OR_ENTERED	Lithuanian airspace
+U.S.	ANNOUNCED_STATEMENT	Ukraine must accept U.S.-drafted framework
+Melania Trump	LOCATED_IN	well-being of children
+Veniamin Mazzherin	~LEADER_OR_OFFICIAL_OF	Russian Guard special unit
+Raju Goplalakrishnan	ANNOUNCED_STATEMENT	this story
+urging of US service members	LOCATED_IN	group of Democrats
+Alex Ryzhuk	ORIGINATED_FROM	Ireland
+Prosecutors	REQUESTED	convict Eritrean suspect
+Strike by doctors	ANNOUNCED_STATEMENT	impending collapse of health system
+Trump's comments	OCCURRED_ON	urging of US service members
+Discussion	IS_IDENTIFIED_AS	spotlighting Ukrainian cuisine
+Migration peak	LOCATED_IN	Rishi Sunak's Conservative government
+Kazakhstan's anti-LGBTQ legislation	IMPOSED_SANCTIONS	dissemination of information containing propaganda of pedophilia and/or non-traditional sexual orientation
+Friday	~ANNOUNCED_STATEMENT	Donald Trump
+Ukraine	~MEMBER_OR_EMPLOYEE_OF	GUR
+Vladimir Putin	INTENDS_TO	Faure Gnassingbe
+Brexit Party	LEADER_OR_OFFICIAL_OF	Nigel Farage
+strikes	ATTACKED	Ukraine's energy infrastructure
+Judicial control	IS_IDENTIFIED_AS	restrictions on contact
+Work	IS_IDENTIFIED_AS	restore power
+White House official	AGREED_TO	exemption to BBC News
+Ros Russell	~LOCATED_IN	Article
+Reporting	ANNOUNCED_STATEMENT	Chinese firms helping Iran rebuild ballistic missile program
+Bringing the end of the war closer	IS_IDENTIFIED_AS	Ukraine's top priority
+Vitalii Hnidyi	ANNOUNCED_STATEMENT	Kharkiv
+Drone attacks	ATTACKED	civilians
+Russia's invasion of Ukraine	CAUSED	Finland joining Western alliance
+Russian drones	IS_IDENTIFIED_AS	incoming
+Tomahawk missiles	IS_IDENTIFIED_AS	Ukraine
+Novorossiysk	IS_IDENTIFIED_AS	Russian port city
+new world record	IS_IDENTIFIED_AS	pulling a 58-ton yacht
+Treacherous conditions	CRITICIZED_OR_OPPOSED	both sides
+Alex Ryzhuk	IS_IDENTIFIED_AS	fourth Irish man to die in war
+Xi Jinping	~INTENDS_TO	Donald Trump
+Thomson Reuters Standards	IS_IDENTIFIED_AS	The Thomson Reuters Trust Principles
+Russian capture of Pokrovsk	IS_IDENTIFIED_AS	pivotal
+Six new munitions factories	IS_IDENTIFIED_AS	strategy
+Corruption scandal	INJURED	Ukraine's energy sector
+Russia missile	ATTACKED	damaged apartment buildings
+Russian strikes	IS_IDENTIFIED_AS	deadly
+Volodymyr Zelenskiy	ANNOUNCED_STATEMENT	22 people were missing
+nuclear rhetoric	IS_IDENTIFIED_AS	dangerous
+Donald Trump	REQUESTED	US to resume testing of nuclear weapons
+Kirill Dmitriev	IS_IDENTIFIED_AS	Kremlin special envoy
+Kassym-Jomart Tokayev	INTENDS_TO	talks with Putin
+Nato countries	PROVIDED_AID	Ukraine
+Efforts	TRADES_WITH	to crack down on bootlegging
+Prosecutors	LOCATED_IN	WhatsApp chats
+Russia	ANNOUNCED_STATEMENT	its attacks on energy targets are aimed at Ukrainian military
+Dnipropetrovsk	IS_IDENTIFIED_AS	southern Ukrainian region
+Western official	IS_IDENTIFIED_AS	ideas under discussion
+Border closure	CAUSED	constant violations of Lithuania's airspace
+Alex Ryzhuk's family	~PRODUCED_OR_BUILT	DNA tests
+Ban	IS_IDENTIFIED_AS	Facebook
+Aggravated arson	IS_IDENTIFIED_AS	February 2024 blaze
+Russia	~LOCATED_IN	territorial concessions
+Dense fog	CAUSED	Moscow to intensify bid
+Julianne Smith	TRADES_WITH	Bianna Golodryga
+Attacks on the electrical grid	CAUSED	nationwide power outages
+Novgorod	LOCATED_IN	northwestern
+Sanctioning of business partner	LOCATED_IN	scandal broke
+opportunities	~CAUSED	Changing weather
+Article	ANNOUNCED_STATEMENT	Humphrey Malalo
+Cash transfers	IS_IDENTIFIED_AS	a popular election-winning strategy
+Volodymyr Zelensky	ANNOUNCED_STATEMENT	Ukraine launched Neptune cruise missiles
+Ukraine	~REQUESTED	Tomahawk cruise missiles
+Ukraine	~IS_IDENTIFIED_AS	peace proposal
+Umaro Sissoco Embalo	SEARCHED_FOR	second term
+Ukraine's military	ANNOUNCED_STATEMENT	300-500 Russians are in Pokrovsk
+Phone call between Trump and Putin	IS_IDENTIFIED_AS	unwelcome surprise to Kyiv
+Rheinmetall	IS_IDENTIFIED_AS	Germany's biggest defence firm
+Volodymyr Zelensky	ANNOUNCED_STATEMENT	situation remains difficult
+Meeting between Zelensky and Erdogan	LOCATED_IN	Ankara
+Ukrainian weapons	IS_IDENTIFIED_AS	long-range Neptune missiles
+Inga Ruginiene	ANNOUNCED_STATEMENT	helium balloons entered Lithuania's airspace
+Russia	ANNOUNCED_STATEMENT	Putin did not announce new nuclear testing
+Germany	INTENDS_TO	Europe's strongest conventional army
+refineries	LOCATED_IN	deep inside Russia
+Plan to defend	ORIGINATED_FROM	military attack
+Unarmed drones	IS_IDENTIFIED_AS	suspected hybrid warfare programme
+Widespread campaign	INTENDS_TO	silence protesters
+world-first law	INTENDS_TO	risks children face online
+Amnesty International	ANNOUNCED_STATEMENT	widespread campaign sought to silence and suppress protesters
+Red Command	CONVICTED	hillside shantytowns
+News	REQUESTED	starting the day
+Poland	PROVIDED_AID	thousands of soldiers
+Viktor Orban	LOCATED_IN	Washington
+German coalition government	ANNOUNCED_STATEMENT	new military service plan
+United States	~LOCATED_IN	security guarantees
+Bill Berkrot	ANNOUNCED_STATEMENT	this story
+Russian missile	ATTACKED	Apartment building
+Donald Trump	REQUESTED	Kyiv to stop
+Letter of intent	IMPOSED_SANCTIONS	Ukraine to buy French fighter jets
+US president's claims	CRITICIZED_OR_OPPOSED	CIA's assessment
+Bangladesh	~LOCATED_IN	India
+Appeal	IS_IDENTIFIED_AS	September conviction
+A House of Dynamite	IS_IDENTIFIED_AS	mutually assured destruction
+Territory controlled by Russian forces	LOCATED_IN	east of Ukraine
+DeepState website	INVESTIGATED	battlefield developments
+pressing in	~OCCURRED_ON	uptick in civilian deaths
+Drone sightings	LOCATED_IN	Poland
+support	LOCATED_IN	U.S.
+The Thomson Reuters Trust Principles	IS_IDENTIFIED_AS	Reuters' Standards
+Nato	INTENDS_TO	Eastern Sentry
+Melania Trump	INTENDS_TO	complex issue
+A House of Dynamite	IS_IDENTIFIED_AS	nuclear war
+Volodymyr Zelensky	ANNOUNCED_STATEMENT	long-range missiles
+20-point peace plan	IS_IDENTIFIED_AS	establishment of International Stabilisation Force
+DNA tests	PRODUCED_OR_BUILT	Alex Ryzhuk's family
+Russia	ATTACKED	largest missile and drone attack
+Security threats	LOCATED_IN	Europe
+Russia	AGREED_TO	war crimes
+Donald Trump	ANNOUNCED_STATEMENT	Chinese president can influence Putin
+Sanctions	IS_IDENTIFIED_AS	Trump administrations actions
+Burevestnik cruise missile	IS_IDENTIFIED_AS	nuclear-powered
+Europe	~LOCATED_IN	Kseniia Kalmus
+Dmitry Peskov	PROVIDED_AID	exclusive interview
+Two suspects	HAS_QUANTITY	two acts of sabotage
+Humphrey Malalo	~ANNOUNCED_STATEMENT	Article
+Agreed meeting	ANNOUNCED_STATEMENT	war in Ukraine
+Donald Trump	ANNOUNCED_STATEMENT	new wave of sanctions
+Report	ACCUSED_OF	Russia
+Ukrainian military	~PROVIDED_AID	Kseniia Kalmus
+Russia	ATTACKED	full-scale invasion
+India	MET_WITH	a key target of its previous climate action plan
+Drone sightings	OCCURRED_ON	critical infrastructure across Europe
+Kyiv	LOCATED_IN	Ukraine
+massive overnight attack	ATTACKED	apartment buildings
+Alex Ryzhuk	KILLED	Ukraine
+Thousands of women	ABDUCTED	Ethiopia's Amhara conflict
+Ukrainian President	~IS_IDENTIFIED_AS	Volodymyr Zelensky
+Red Command	~IS_IDENTIFIED_AS	Comando Vermelho
+Faure Gnassingbe	~INTENDS_TO	Vladimir Putin
+Romanian airspace	~LOCATED_IN	fighter jets
+Jim Jordan	IS_IDENTIFIED_AS	Julie Inman Grant a 'zealot'
+Ukraine	KILLED	Russian officer
+pontoon	~PRODUCED_OR_BUILT	Russian forces
+Report	LOCATED_IN	UK is failing to meet Nato obligations
+NATO	~LEADER_OR_OFFICIAL_OF	Julianne Smith
+RSF troops	CAPTURED_TERRITORY	el-Fasher
+Information about Mazzherin	ANNOUNCED_STATEMENT	Ukrainian Defense Intelligence
+Veniamin Kondratiev	AGREED_TO	attack on oil depot
+Recep Tayyip Erdogan	LEADER_OR_OFFICIAL_OF	Turkey
+Steve Witkoff	IS_IDENTIFIED_AS	Trump's Special Envoy
+Entire neighbourhoods	CONTROLS_TERRITORY	Israel
+Gains	CRITICIZED_OR_OPPOSED	Ukrainian troops
+Russian officer	ACCUSED_OF	war crimes
+Call	OCCURRED_ON	CNN reporting
+eastern Donetsk region	~LOCATED_IN	pressing in
+Alex Ryzhuk	KILLED	war in Ukraine
+Volodymyr Zelensky	ANNOUNCED_STATEMENT	reporter's question
+European leaders	INTENDS_TO	work in coordination
+Kyiv	~MET_WITH	Bucha
+Discussions	THREATENED	US-Russia relationship
+Reuters Daily Briefing newsletter	PROVIDED_AID	news
+Labour	ANNOUNCED_STATEMENT	last year's manifesto
+Viktor Orban	ANNOUNCED_STATEMENT	sanctions would ruin Hungary's economy
+Eugene Korolev	IS_IDENTIFIED_AS	spotlighting Ukrainian cuisine
+Ukraine	ATTACKED	oil terminal
+Kemi Badenoch	ANNOUNCED_STATEMENT	migration peak
+Night time reality	LOCATED_IN	cities across Ukraine
+Ukraine	~PROVIDED_AID	Nato countries
+Ukraine	ANNOUNCED_STATEMENT	refineries
+Attacks on locations	CAUSED	lack of heating
+Gareth Jones	IS_IDENTIFIED_AS	Editor
+massive overnight attack	~INVADED_OR_ENTERED	Russian drone
+war in Ukraine	~KILLED	Alex Ryzhuk
+Dylan Earl	CONVICTED	aggravated arson
+Ethiopia	INTENDS_TO	return
+Volodymyr Zelensky	CAUSED	bilateral talks
+Donald Trump	IS_IDENTIFIED_AS	very good relationship with President Xi
+Egyptian restorers	PRODUCED_OR_BUILT	dilapidated neighbourhood
+Putin	PROVIDED_AID	gains
+Dmitry Antonov	IS_IDENTIFIED_AS	Reporter
+Return	IS_IDENTIFIED_AS	push to repatriate items
+Israeli military	ATTACKED	Hamas members
+US pressure	IS_IDENTIFIED_AS	Trump's gambit
+DNA tests	AGREED_TO	remains were Alex Ryzhuk's
+GUR	MEMBER_OR_EMPLOYEE_OF	Ukraine
+Russian drone	INVADED_OR_ENTERED	Romanian airspace
+Majilis	REQUESTED	anti-LGBTQ legislation
+Donald Trump	REQUESTED	Moscow to end the war
+Reuters AI	PROVIDED_AID	discovery of key points
+Volodymyr Zelensky	LOCATED_IN	France
+Future invasions/attacks	IS_IDENTIFIED_AS	Baltic states
+Exemption	CAUSED	buying Russian oil and gas
+Opportunities	PROVIDED_AID	both sides
+Cedric Leighton	IS_IDENTIFIED_AS	military stakes
+Bucha	~KILLED	Hundreds of civilians
+Thick fog	PROVIDED_AID	Russian troops to move
+Zelensky	REFUSED	territorial concessions
+War crimes	OCCURRED_ON	Russia's full-scale invasion of Ukraine
+CNN	~ANNOUNCED_STATEMENT	Dmitry Peskov
+Deal	INTENDS_TO	stop firing
+Moscow	~LOCATED_IN	pulling a 58-ton yacht
+Report	LOCATED_IN	Physicians for Human Rights Israel
+Article	PRODUCED_OR_BUILT	Elias Biryabarema
+India	CRITICIZED_OR_OPPOSED	a dilemma with Bangladesh
+The plan	LEADER_OR_OFFICIAL_OF	US officials
+Sanctions	LOCATED_IN	Russian oil
+Russian military police unit	LOCATED_IN	Kemerovo
+Kseniia Kalmus	PRODUCED_OR_BUILT	drones
+Inga Ruginiene	REQUESTED	united resolute response
+European nations	INTENDS_TO	support Ukraine's defence
+Zelensky	AGREED_TO	invitation
+Donald Trump	IS_IDENTIFIED_AS	President
+Emergency workers	LOCATED_IN	scene of damaged apartment buildings
+Viktor Orban	IS_IDENTIFIED_AS	Hungarian prime minister
+Ukraine	~LOCATED_IN	strikes
+Moscow	EVADED_SANCTIONS	shipping oil
+Ukrainian officials	ANNOUNCED_STATEMENT	more air defenses are urgently needed
+Volodymyr Zelensky	DEPLOYED_MILITARY	Vladimir Putin
+Kassym-Jomart Tokayev	IS_IDENTIFIED_AS	Kazakhstan's president
+Dozens of helium balloons	INVADED_OR_ENTERED	Lithuania's airspace
+Russia's top economic envoy	LOCATED_IN	United States
+Valery Gerasimov	IS_IDENTIFIED_AS	chief of the general staff of Russias armed forces
+Russian forces	INJURED	low visibility
+Operation Containment	CAUSED	117 suspected gunmen killed
+Ukraine	~LOCATED_IN	Production of military drones
+war in Ukraine	~SUPPORTED_OR_ALLIED	Buying oil and gas from Russia
+City	FAILED_TO	Russia
+Funeral of Alex Ryzhuk	INTENDS_TO	Wednesday
+Two ministers	RESIGNED_OR_REMOVED	corruption scheme
+pressure	OCCURRED_ON	losses
+Admiral Dragone	ANNOUNCED_STATEMENT	Nato concerns about Russia's nuclear weapons
+Yevgeny Ivanov	FAILED_TO	both legs
+Kseniia Kalmus	ANNOUNCED_STATEMENT	Ukrainian capital
+Rebuilding ballistic missile program	CRITICIZED_OR_OPPOSED	United Nations sanctions
+Julianne Smith	IS_IDENTIFIED_AS	Trump administration's hardening line on Russia
+Volodymyr Zelenskiy	ANNOUNCED_STATEMENT	26 people confirmed dead
+Monty Panesar	ANNOUNCED_STATEMENT	quiz show
+Nathan Gill	PROVIDED_AID	TV interviews
+largest missile and drone attack	OCCURRED_ON	Overnight
+Melania Trump	DISPLACED_PERSONS	Ukrainian children
+Prosecutors	ANNOUNCED_STATEMENT	"sustained campaign of terrorism and sabotage"
+Belarus' foreign ministry	ANNOUNCED_STATEMENT	border closure violates rights
+peace proposal	IS_IDENTIFIED_AS	Ukraine
+Elina Valtonen	ANNOUNCED_STATEMENT	America's role
+Ukraine	~IS_IDENTIFIED_AS	Cuisine
+Two Ukrainian citizens	MEMBER_OR_EMPLOYEE_OF	Russian intelligence
+Zelensky	REQUESTED	reforms for Naftogaz
+Donald Trump	ANNOUNCED_STATEMENT	Hungary faced unique logistical challenges
+Nicolas Sarkozy	INTENDS_TO	appeal trial
+Hamas	~IS_IDENTIFIED_AS	ceasefire deal
+Article	LOCATED_IN	Ros Russell
+group of Democrats	~LOCATED_IN	urging of US service members
+Nicolas Sarkozy's 2007 presidential campaign	PROVIDED_AID	Libya
+Alex Ryzhuk	MEMBER_OR_EMPLOYEE_OF	military forces
+Exemption	LOCATED_IN	US sanctions
+Trump administration	IS_IDENTIFIED_AS	hardening line
+determination and sport	PROVIDED_AID	Yevgeny Ivanov
+Volodymyr Zelensky	AGREED_TO	Trump administration
+Russian retreat	ANNOUNCED_STATEMENT	bodies of children and the elderly
+alleged Ukrainian agent	SEARCHED_FOR	bomb
+Anti-graft investigators	ANNOUNCED_STATEMENT	$100 million embezzled
+Editing	LOCATED_IN	Andrew Osborn
+Pro-Russian influence campaign	LOCATED_IN	European Parliament
+Zhanar Sekerbayeva	CRITICIZED_OR_OPPOSED	Kazakhstan being colony of Russian Federation
+Charlotte's Democratic leaders	ANNOUNCED_STATEMENT	stoking of fear by border agents
+Volodymyr Zelensky	MET_WITH	Emmanuel Macron
+U.S.	~LOCATED_IN	support
+largest missile and drone attack	ATTACKED	residential apartments
+Strike on oil terminal	CAUSED	infrastructure damage
+UK	FAILED_TO	plan to defend overseas territories
+War	LOCATED_IN	Russia
+money	TRANSPORTED	Department of Health's deficit
+Exemption	IS_IDENTIFIED_AS	Hungary
+Bucha	CONTROLS_TERRITORY	Russian troops
+Reuters AI	INVESTIGATED	key points from this story
+Admiral Giuseppe Cavo Dragone	IS_IDENTIFIED_AS	chair of Nato's military committee
+Ministers in Kyiv	IS_IDENTIFIED_AS	Moscow is trying to damage morale of Ukraine's people
+DNA test confirmation	ANNOUNCED_STATEMENT	Irish broadcaster RTE
+Pressurising Russia	INTENDS_TO	end war on Ukraine
+Yevgeny Ivanov	IS_IDENTIFIED_AS	Russian double-amputee veteran
+Gleb Stolyarov	~LOCATED_IN	Writing
+Court	CONVICTED	Nicolas Sarkozy forbidden from leaving France
+Russian Guard special unit	ACCUSED_OF	war crimes
+Putin	REQUESTED	Ukrainian withdrawal from Donetsk region
+Prison convoy	TRANSPORTED	Navalny
+Kazakhstan	MEMBER_OR_EMPLOYEE_OF	Moscow
+Memorial mass	INTENDS_TO	Donnycarney Church
+US lawmakers	REQUESTED	Trump administration
+Tensions	IS_IDENTIFIED_AS	escalating
+Nitish Kumar's party	IS_IDENTIFIED_AS	allies
+US	ATTACKED	hard trade deal
+European capitals	CRITICIZED_OR_OPPOSED	Hungary's friendly stance towards Moscow
+WhatsApp chats	LOCATED_IN	Nathan Gill
+Loss of city	CAUSED	weakened position for Ukraine
+Lithuania	CUT_TIES	border with Belarus
+British pilots	TRANSPORTED	Russian spy ship Yantar
+Russian drone and missile attack	ATTACKED	Ternopil
+Volodymyr Zelensky	AGREED_TO	peace proposal
+Russian Guard special unit	LEADER_OR_OFFICIAL_OF	Veniamin Mazzherin
+Kseniia Kalmus	PROVIDED_AID	Ukrainian military
+changes to alcohol licensing rules	INVESTIGATED	independent report
+pulling a 58-ton yacht	LOCATED_IN	Moscow
+Russia	ANNOUNCED_STATEMENT	Ukraines energy infrastructure
+Volodymyr Zelensky	LEADER_OR_OFFICIAL_OF	Ukraine
+Swedish Coastguard	COMMUNICATED_WITH	sanctioned oil tanker
+Eugene Korolev	SUPPORTED_OR_ALLIED	Ukraine's frontlines
+Bianna Golodryga	~TRADES_WITH	Julianne Smith
+BBC's US partners	~PROVIDED_AID	The letter
+Ukraine's frontlines	LOCATED_IN	Ukraine
+Attacks on locations	CAUSED	lack of electricity
+Viktor Orban	ANNOUNCED_STATEMENT	Friday
+Coalition of the Willing	ANNOUNCED_STATEMENT	strategies to end war in Ukraine
+Donald Trump	ANNOUNCED_STATEMENT	long-range missiles
+Nato	HAS_QUANTITY	Ukraine
+Jim Jordan	IS_IDENTIFIED_AS	Republican
+Donald Trump's goal	IS_IDENTIFIED_AS	ending war in Ukraine
+Law enforcement agents	ARRESTED_OR_DETAINED	alleged Ukrainian agent
+Hamas-linked social media channels	ANNOUNCED_STATEMENT	three collaborators were executed
+Donald Trump	IMPOSED_SANCTIONS	Hungary from sanctions
+China	PROVIDED_AID	vital support to Moscow
+Nicolas Sarkozy	LOCATED_IN	social media
+Driving factor for change	IS_IDENTIFIED_AS	more British nationals emigrated in 2024
+key points	ORIGINATED_FROM	story
+British-Irish Intergovernmental Conference	MET_WITH	Simon Harris
+Putin	SUPPORTED_OR_ALLIED	"authentic heroes"
+Simon Harris	~MET_WITH	British-Irish Intergovernmental Conference
+More than 200 civilians	KILLED	Dnipropetrovsk
+Zelensky	CRITICIZED_OR_OPPOSED	serious domestic crisis
+Russian Guard special unit	ACCUSED_OF	genocide against Ukrainian people
+missile attacks	~ATTACKED	Russia
+White House press secretary	ANNOUNCED_STATEMENT	peace proposal remained in flux
+Nicolas Sarkozy's energy	ATTACKED	proving innocence
+Russian aircraft incursions	DISPLACED_PERSONS	Europe
+Military-led government	ANNOUNCED_STATEMENT	wary of agreeing to ceasefire
+Guy Faulconbridge	IS_IDENTIFIED_AS	Writer
+Good relations with Russia	OCCURRED_ON	Ukraine war
+Fighting	CAPTURED_TERRITORY	Ukraine
+Hungary	~LOCATED_IN	US pressure
+Trump administrations actions	~IS_IDENTIFIED_AS	Sanctions
+Donald Trump	IS_IDENTIFIED_AS	opt-out for Viktor Orban
+Escalating tensions	OCCURRED_ON	Changes to Russia's nuclear doctrine
+Ukrainian children	~DISPLACED_PERSONS	Melania Trump
+Russia's invasion of Ukraine	CAUSED	Sweden joining Western alliance
+Military stakes	LOCATED_IN	Eastern Ukraine
+Donald Trump	~MET_WITH	Viktor Orban
+Missile and drone attacks	LOCATED_IN	Ukraine
+Firing	ATTACKED	energy sites
+aggravated arson	~CONVICTED	Dylan Earl
+Peter Szijjarto	ANNOUNCED_STATEMENT	exemption indefinite
+Russian attacks	ATTACKED	Ukraine's energy infrastructure
+Writing	LOCATED_IN	Gleb Stolyarov
+CNN	~INVESTIGATED	New footage
+The letter	ACCUSED_OF	US rules violations
+Kemi Badenoch	CAUSED	people taking their eye off the ball
+Viktor Orban	TRANSPORTED	good relations with Russia
+drones	~PRODUCED_OR_BUILT	Kseniia Kalmus
+People from island of Ireland	KILLED	war in Ukraine
+move	OCCURRED_ON	escalating tensions
+US	ACCUSED_OF	Beijing of aiding Russia's war effort
+Russia	TRANSPORTED	massive overnight attack
+Australia	PROVIDED_AID	Turkish bid
+Comando Vermelho	~ATTACKED	Operation Containment
+Oleksandr Syrskyi	ANNOUNCED_STATEMENT	Ukraine increasing effectiveness of domestic long-range weapons
+Ukrainian forces	~INTENDS_TO	Moscow
+Letter of intent	IMPOSED_SANCTIONS	Ukraine to buy surface-to-air missile systems
+CNN	~MEMBER_OR_EMPLOYEE_OF	Frederik Pleitgen
+Inti Landauro	IS_IDENTIFIED_AS	Reporter
+Dylan Earl	LEADER_OR_OFFICIAL_OF	arson attack
+Systematic and coordinated war crimes	LOCATED_IN	Bucha
+Reuters' Standards	IS_IDENTIFIED_AS	The Thomson Reuters Trust Principles
+Viktor Orban	USED_WEAPON	Hungary's dependence on Russian oil and gas
+Vladimir Putin	ANNOUNCED_STATEMENT	talks
+Report	PRODUCED_OR_BUILT	MoD identified prospective locations
+Russia's 2022 ban	IMPOSED_SANCTIONS	promoting homosexual relationships
+Court	OCCURRED_ON	Nicolas Sarkozy forbidden from contacting Gerald Darmanin
+Belarus' foreign ministry	ORIGINATED_FROM	note of protest to Lithuania
+Australia's support	IS_IDENTIFIED_AS	Turkish minister chairing climate talks
+Kremlin	ANNOUNCED_STATEMENT	Russian involvement
+Hard trade deal	IS_IDENTIFIED_AS	expensive for Hungary
+Conservative government	ANNOUNCED_STATEMENT	bring immigration down
+Oleksandr Kozhukhar	ANNOUNCED_STATEMENT	Kyiv
+Russia's launches	ATTACKED	civilian infrastructure
+Hungary	~IS_IDENTIFIED_AS	Exemption
+Experts	ANNOUNCED_STATEMENT	air quality framework needs an update
+Russia	TRANSPORTED	invasion
+Drone attacks	LOCATED_IN	areas along front line
+Donald Trump	INTENDS_TO	war in Ukraine
+Campaign	HAS_QUANTITY	21 months
+losses	IS_IDENTIFIED_AS	mounting
+Northern Ireland Secretary	INTENDS_TO	debate in the Commons
+Donald Trump	HAS_QUANTITY	frequent clashes with EU leaders
+Admiral Giuseppe Cavo Dragone	IS_IDENTIFIED_AS	Russia-Ukraine war bogged down
+Criticism	LOCATED_IN	European allies
+Dmitry Antonov	~LOCATED_IN	Reporting
+Hungary	OWNS_OR_OPERATES	any other EU nation
+Verified clips	INVESTIGATED	violent actions of police
+Andrew Osborn	IS_IDENTIFIED_AS	Editor
+Russian forces	TRANSPORTED	pressing in
+Donald Tusk	IS_IDENTIFIED_AS	Polish Prime Minister
+Russian forces	CAPTURED_TERRITORY	Pokrovsk
+retired general	IS_IDENTIFIED_AS	peace talks
+uncertainty	IS_IDENTIFIED_AS	support
+New figures	PROVIDED_AID	more accurate reflection of migrants activities
+Prohibition	OCCURRED_ON	Bihar
+Yulia Svyrydenko	ANNOUNCED_STATEMENT	critical infrastructure facilities reconnected
+Accusation against Kim	ORIGINATED_FROM	Ukraines Prosecutor General
+Formal agreement	IS_IDENTIFIED_AS	not put in place
+Donald Trump	INTENDS_TO	China's help
+Ukrainian air force	ANNOUNCED_STATEMENT	Russia launched 45 missiles
+UK	FAILED_TO	plan to defend itself
+Full transparency in energy sector	IS_IDENTIFIED_AS	absolute priority
+Kseniia Kalmus	PROVIDED_AID	Ukraine
+Xi Jinping	ORIGINATED_FROM	China
+Andrew Gray	IS_IDENTIFIED_AS	Reporter
+Ukraine	TRADES_WITH	surface-to-air missile systems
+second deadly attack on Ukraine	~ATTACKED	Russia
+25 girls	ABDUCTED	boarding school
+Elias Biryabarema	~PRODUCED_OR_BUILT	Article
+Drones	USED_WEAPON	Ukrainians
+bilateral talks	~CAUSED	Donald Trump
+National Security Act	OCCURRED_ON	Russias all-out invasion of Ukraine
+Discussion	IS_IDENTIFIED_AS	preserving Ukraine's culture
+Russia	ACCUSED_OF	starting preparations for nuclear testing
+Volodymyr Zelensky	IS_IDENTIFIED_AS	Ukrainian President
+Portuguese player	PROVIDED_AID	hundreds of millions
+gulf state's modernisation plan	~IS_IDENTIFIED_AS	Portuguese player
+Russian troops	INVADED_OR_ENTERED	Pokrovsk
+US officials	ANNOUNCED_STATEMENT	peace proposal was still being worked on
+Report of attack	OCCURRED_ON	Wednesday
+Melania Trump	IS_IDENTIFIED_AS	first lady
+Ukrainian troops	IS_IDENTIFIED_AS	ammunition-starved
+Freedom of Russia Legion	~CUT_TIES	former sailor
+move	~HAS_QUANTITY	urgency
+independent report	~INVESTIGATED	changes to alcohol licensing rules
+Alex Ryzhuk	IS_IDENTIFIED_AS	Irish man
+Moscow	MET_WITH	peace talks
+pressing in	LOCATED_IN	eastern Donetsk region
+Lithuania's armed forces	PROVIDED_AID	necessary measures
+Installation of cameras	IS_IDENTIFIED_AS	measures to tighten security
+Authorities	ANNOUNCED_STATEMENT	balloons carried smuggled cigarettes
+Kazakhstan's leaders	SUPPORTED_OR_ALLIED	Russia
+Kazakh LGBTQ rights defenders	CRITICIZED_OR_OPPOSED	Kazakhstan's anti-LGBTQ legislation
+Yurii Vladimirovich Kim	ACCUSED_OF	troops to murder civilians
+EU leaders	INTENDS_TO	unblock loan for Kyiv
+key points	ORIGINATED_FROM	the story
+Donald Trump	SUPPORTED_OR_ALLIED	Hungary
+Operation Containment	ATTACKED	Comando Vermelho
+story	~ORIGINATED_FROM	key points
+Donald Trump	ANNOUNCED_STATEMENT	talks
+Ukraine's government	ATTACKED	sign of Russian desperation
+Luhansk and Donetsk regions	IS_IDENTIFIED_AS	Donbas
+Revised figures	ORIGINATED_FROM	Office for National Statistics
+Vladimir Putin	IS_IDENTIFIED_AS	Russian President
+Alleged "pawn"	IS_IDENTIFIED_AS	main security agency in Vladimir Putin's Russia
+US pressure	INTENDS_TO	Slovakia off Russian oil
+Dmitry Peskov	INVESTIGATED	Frederik Pleitgen
+Nathan Gill	PROVIDED_AID	alleged "pawn"
+Ronald Popeski	ANNOUNCED_STATEMENT	Winnipeg
+Fred Pleitgen	CAUSED	Russia's investigation
+Ukraine-Russia War	OCCURRED_ON	February 2022
+Kazakhstan's anti-LGBTQ legislation	INTENDS_TO	protect children
+Ari Gisell's statement	CAUSED	carjacking
+Turkey	SUPPORTED_OR_ALLIED	Kyiv
+both legs	FAILED_TO	a drone strike
+Moscow	INTENDS_TO	Pokrovsk
+Russia	~DEPLOYED_MILITARY	Tomahawk missiles
+Dmitry Peskov	IS_IDENTIFIED_AS	Vladimir Putin's spokesman
+Pokrovsk	IS_IDENTIFIED_AS	key city
+Ukrainian General Staff	ANNOUNCED_STATEMENT	damage to infrastructure
+escalating tensions	~OCCURRED_ON	move
+Elina Valtonen	REQUESTED	non-neutral U.S. position
+territorial concessions	~REFUSED	Zelensky
+Kazakhstan's anti-LGBTQ legislation	CAUSED	discrimination
+Stanislav Buniatov	ANNOUNCED_STATEMENT	fog is very thick
+Russia	ATTACKED	second deadly attack on Ukraine
+Sir Keir Starmer	ANNOUNCED_STATEMENT	net migration falls significantly
+Reporting	LOCATED_IN	Dmitry Antonov
+Jake Reeves	IS_IDENTIFIED_AS	accomplice of Dylan Earl
+CNN's Fred Pleitgen	~INVESTIGATED	Yevgeny Ivanov
+Tough new sanctions	LOCATED_IN	Russia
+Fog	IMPOSED_SANCTIONS	use of drones
+pressure	~CRITICIZED_OR_OPPOSED	Zelensky
+Catherine Connolly's inauguration	REQUESTED	cross-community support
+Russian forces	TRANSPORTED	campaign
+Julianne Smith	IS_IDENTIFIED_AS	US linking Pacific and Atlantic strategies
+pressure	OCCURRED_ON	uncertainty
+Operation Containment	CAUSED	4 police officers killed
+Nigerian security forces	SEARCHED_FOR	25 girls
+Migration increase	OCCURRED_ON	April 2022 and March 2023
+Russian officials	~LEADER_OR_OFFICIAL_OF	The plan
+Lili Bayer	IS_IDENTIFIED_AS	Reporter
+Missile test	OCCURRED_ON	summit breakdown
+invasion	HAS_QUANTITY	nearly three years
+Alex Ryzhuk	LOCATED_IN	August 2024
+Volodymyr Zelensky	DEPLOYED_MILITARY	Donald Trump
+Viktor Orban	~INTENDS_TO	Donald Trump
+Poland's actions	COMMUNICATED_WITH	railway explosion
+New wave of sanctions	ATTACKED	Moscow's two biggest oil producers
+Inga Ruginiene	ANNOUNCED_STATEMENT	Lithuania's armed forces would shoot down balloons
+Ukraine	~PROVIDED_AID	Kseniia Kalmus
+US officials	~LEADER_OR_OFFICIAL_OF	The plan
+Russia	AGREED_TO	crimes against humanity
+Tomahawk missiles	~PROVIDED_AID	US
+Cheney's death	LOCATED_IN	early November
+Sanctions	LOCATED_IN	two of Russias largest oil companies
+Moscow	INTENDS_TO	Ukrainian forces
+Kazakhstan's anti-LGBTQ legislation	ANNOUNCED_STATEMENT	Russia's 2022 ban on LGBTQ propaganda
+Kremlin spokesperson	~IS_IDENTIFIED_AS	Dmitry Peskov
+Operation Containment	CAUSED	100 people arrested
+Zelensky's mission	INTENDS_TO	shore up European support for Ukraine
+EU leaders	PROVIDED_AID	frozen Russian cash
+Portuguese player	IS_IDENTIFIED_AS	gulf state's modernisation plan
+Prosecutors	REQUESTED	Nicolas Sarkozy's release
+Trump	INTENDS_TO	Saudi Crown Prince Mohammed bin Salman
+Donald Trump	REFUSED	Kim Jong Un
+Gunmen	ANNOUNCED_STATEMENT	church
+Occupation of Bucha	LOCATED_IN	2022
+urging of US service members	LOCATED_IN	refuse unlawful commands
+Donald Trump	REQUESTED	Kyiv to end the war
+Drones	USED_WEAPON	Russians
+Vladimir Putin	~COMMUNICATED_WITH	Donald Trump
+points being circulated	IS_IDENTIFIED_AS	final
+Kim Jong Un	REFUSED	demands that North Korea denuclearize
+Tomahawk missiles	DEPLOYED_MILITARY	Russia
+Kirill Dmitriev	MET_WITH	Trump administration officials
+Trump's gambit	INTENDS_TO	pressurise Russia
+Barrage of air strikes	LOCATED_IN	Kyiv
+Separate state	LOCATED_IN	south-east Nigeria
+women	~TRANSPORTED	Cash transfers
+Trump and Modi	AGREED_TO	boost defence ties
+uncertainty	~OCCURRED_ON	pressure
+Situation significantly worsened	IS_IDENTIFIED_AS	loss of three settlements
+Ukraine	~LOCATED_IN	Ternopil
+ceasefire deal	IS_IDENTIFIED_AS	Hamas
+Suspected hybrid warfare programme	INTENDS_TO	Nato countries
+the party	AGREED_TO	non-attendance at inauguration
+New sanctions	ATTACKED	Russia's two biggest oil companies
+Hungary's foreign minister	~IS_IDENTIFIED_AS	Peter Szijjarto
+Paris court	CONVICTED	Nicolas Sarkozy's release
+International Stabilisation Force	INTENDS_TO	territory
+Western countries	IMPOSED_SANCTIONS	sanctions on Russian energy
+Ending Russia-Ukraine war	IS_IDENTIFIED_AS	Donald Trump
+Visit	INTENDS_TO	Ukraine seeking to bolster military capabilities
+Xi Jinping	INTENDS_TO	war end
+Public safety offences	LOCATED_IN	deaths of 63 people
+Bucha	MET_WITH	Kyiv
+Attack drones	ATTACKED	impact
+Russia	USED_WEAPON	Burevestnik cruise missile
+Baltic states	~IS_IDENTIFIED_AS	Future invasions/attacks
+NATO	DEPLOYED_MILITARY	fighter jets
+Kyiv	~REQUESTED	Russian strikes
+Hungary's Prime Minister	~IS_IDENTIFIED_AS	Viktor Orban
+Russian drone	INVADED_OR_ENTERED	massive overnight attack
+Zelensky	ANNOUNCED_STATEMENT	full audit of financial activities of companies
+Operation Containment	LOCATED_IN	Complexo da Penha favela
+Putin's hailing	OCCURRED_ON	eve of second anniversary
+Western sanctions on Russian energy	IS_IDENTIFIED_AS	putting pressure on Moscow
+Emma Little-Pengelly	ANNOUNCED_STATEMENT	unable to attend inauguration
+Hungary	~THREATENED	Conflict
+Kirill Dmitriev	IS_IDENTIFIED_AS	head of Russian sovereign wealth fund
+"military options"	DEPLOYED_MILITARY	if Russian spy ship Yantar becomes threat
+Comando Vermelho	IS_IDENTIFIED_AS	Red Command
+Dmitry Peskov	ANNOUNCED_STATEMENT	nuclear rhetoric
+Melania Trump	ANNOUNCED_STATEMENT	return of eight Ukrainian children
+group of Democrats	REQUESTED	US service members
+Eugene Korolev	IS_IDENTIFIED_AS	preserving Ukraine's culture
+Polina Sychova	IS_IDENTIFIED_AS	spotlighting Ukrainian cuisine
+Strike by doctors	IS_IDENTIFIED_AS	broader wave of social unrest
+Thousands of young doctors	LOCATED_IN	Tunisia
+Pokrovsk	IS_IDENTIFIED_AS	Ukrainian city
+Donald Trump	ANNOUNCED_STATEMENT	tough new sanctions
+New footage	INVESTIGATED	CNN
+War crimes	IS_IDENTIFIED_AS	forcible transfer of people
+Iran's efforts	IS_IDENTIFIED_AS	rebuild ballistic missile arsenal
+Viktor Orban	MET_WITH	Pope Leo
+Western intelligence sources	ANNOUNCED_STATEMENT	shipments of sodium perchlorate
+politicians	~USED_WEAPON	Cash transfers
+Donald Trump	PROVIDED_AID	exemption
+Authorities	ANNOUNCED_STATEMENT	urgency
+Kyiv	IS_IDENTIFIED_AS	capital city
+Successive Conservative governments	INTENDS_TO	cut migration to UK
+Sanctioned oil tanker	LOCATED_IN	western Baltic
+Russia	USED_WEAPON	nuclear weapons since the '90s
+February 2024 blaze	ATTACKED	company delivering internet terminals from Elon Musks Starlink to Ukraine
+Nathan Gill	CAPTURED_TERRITORY	bribes
+Apartment building	LOCATED_IN	Ternopil
+Donald Trump	PRODUCED_OR_BUILT	campaign promises
+Hostile trade relations	LOCATED_IN	US and China
+Darius Buta	ANNOUNCED_STATEMENT	Belarusian smugglers use balloons for smuggling
+Frontlines	LOCATED_IN	Ukraine
+Russian forces	PRODUCED_OR_BUILT	pontoon
+Bribes	IS_IDENTIFIED_AS	pro-Russian influence campaign
+Gunmen	USED_WEAPON	Gaza
+Russia's top economic envoy	LOCATED_IN	official talks
+Labour's manifesto	ANNOUNCED_STATEMENT	higher migration reduces incentives for businesses to train locally
+Nicolas Sarkozy	CONVICTED	involvement in scheme
+China	IS_IDENTIFIED_AS	Russia's biggest ally
+points being circulated	COMPARED_TO	Moscows demands
+White House official	ANNOUNCED_STATEMENT	CNN
+US	REQUESTED	with Atlantic strategies
+Lidia Kelly	ANNOUNCED_STATEMENT	this story
+Dylan Earl	AGREED_TO	offense under National Security Act
+Donald Trump	AGREED_TO	face-to-face talks
+Office for National Statistics	IS_IDENTIFIED_AS	ONS
+Anna Paulina Luna	INTENDS_TO	Russian special envoy
+Donald Trump	OCCURRED_ON	not ready to supply Tomahawk cruise missiles to Ukraine
+massive overnight attack	IS_IDENTIFIED_AS	470 drones
+Sir Keir Starmer	IS_IDENTIFIED_AS	Prime Minister
+world-first law	PROVIDED_AID	pushback
+attacks	ATTACKED	US
+Ukraine	PROVIDED_AID	military capabilities
+Volodymyr Zelensky	ANNOUNCED_STATEMENT	attacks showed no exceptions to Western sanctions on Russian energy
+Frederik Pleitgen	~IS_IDENTIFIED_AS	exclusive interview
+Battlefield developments	LOCATED_IN	Ukraine
+Kassym-Jomart Tokayev	MET_WITH	Vladimir Putin
+Kemi Badenoch	IS_IDENTIFIED_AS	Tory leader
+Health Minister	ANNOUNCED_STATEMENT	money diverted
+Church	LOCATED_IN	Nigeria
+Trump's comments	OCCURRED_ON	difficult week for Kyiv
+Kyiv	~CRITICIZED_OR_OPPOSED	Moscow's demands
+France's Louvre Museum	INTENDS_TO	100 external cameras
+Volodymyr Zelensky	INTENDS_TO	overhaul state-owned energy companies
+Hundreds of civilians	KILLED	Bucha
+Ukraine	~IS_IDENTIFIED_AS	eastern Donetsk region
+Ternopil	LOCATED_IN	Ukraine
+Armin Papperger	LEADER_OR_OFFICIAL_OF	Rheinmetall
+Trip to Washington	INTENDS_TO	luxuriant praise
+Slovakia	~LOCATED_IN	US pressure
+civilian deaths	ANNOUNCED_STATEMENT	uptick
+United Nations	ANNOUNCED_STATEMENT	report
+Operation Containment	LOCATED_IN	Complexo do Alemao favela
+Zelensky	CRITICIZED_OR_OPPOSED	pressure
+Vladimir Putin	AGREED_TO	face-to-face talks
+Ukrainian Energy Ministry	ANNOUNCED_STATEMENT	power cuts in Dnipropetrovsk region
+Anthony Deutsch	ANNOUNCED_STATEMENT	the story
+Incident near Pulawy	CAUSED	damage to overhead cables
+Drone attacks on civilians	INVESTIGATED	crime against humanity of murder
+Pentagon	PRODUCED_OR_BUILT	memo
+Donald Trump	SUPPORTED_OR_ALLIED	European Union countries
+starting preparations for nuclear testing	~IS_IDENTIFIED_AS	Russia's investigation
+Items	REQUESTED	Ukrainian soldiers
+Nabu	IS_IDENTIFIED_AS	National Anti-Corruption Bureau of Ukraine
+Pokrovsk	IS_IDENTIFIED_AS	embattled city
+Vladimir Putin	ANNOUNCED_STATEMENT	testing of nuclear-capable missile
+Ongoing conflict in Ukraine	CAUSED	continuing huge growth in production of military drones
+Lidia Kelly	ANNOUNCED_STATEMENT	Melbourne
+Ukraine's 7th Airborne Assault Corps	ANNOUNCED_STATEMENT	weather conditions prompted Moscow to intensify bid
+Nathan Gill	PROVIDED_AID	speeches in European Parliament
+PM	INTENDS_TO	British business
+Ukrainian air force	ANNOUNCED_STATEMENT	Russia launched more than 450 exploding bomber drones
+Prashant Kishor	ATTACKED	Jan Suraaj
+Donald Trump	IS_IDENTIFIED_AS	US President
+Russian troops	~CONTROLS_TERRITORY	Bucha
+Donald Trump	CAUSED	bilateral talks
+Donald Trump	COMMUNICATED_WITH	Vladimir Putin
+war	~LOCATED_IN	America's role
+Freedom of Russia Legion	IS_IDENTIFIED_AS	anti-Moscow
+US	IS_IDENTIFIED_AS	arming Ukraine
+Russia	ATTACKED	dozens of missiles
+Volodymyr Zelenskiy	IS_IDENTIFIED_AS	President of Ukraine
+China	~ORIGINATED_FROM	Xi Jinping
+Russian strikes	REQUESTED	Kyiv
+Israel	LOCATED_IN	boundary markers
+Media reports	ANNOUNCED_STATEMENT	White House meeting descended into shouting match
+Ukraine	INVESTIGATED	Yurii Vladimirovich Kim
+Ambassadors from G7	INTENDS_TO	discuss issue
+Russia's launches	ATTACKED	Ukraine's gas supply network
+Inga Ruginiene	IS_IDENTIFIED_AS	Prime Minister of Lithuania
+Ukrainian children	LOCATED_IN	Russian captivity
+Physicians for Human Rights Israel	~LOCATED_IN	Report
+Dmitry Peskov	IS_IDENTIFIED_AS	Kremlin spokesperson
+Elina Valtonen	IS_IDENTIFIED_AS	Finnish Foreign Minister
+Russian forces	ATTACKED	territory they control
+Changes	OCCURRED_ON	Russia's nuclear doctrine
+Nicolas Sarkozy	PROVIDED_AID	supporters
+Arrest	LOCATED_IN	Novgorod
+peace proposal	LEADER_OR_OFFICIAL_OF	Trump administration
+Attack on church	CAUSED	killing of two people
+Enemy forces	TRADES_WITH	accumulate
+Ukraine	~REQUESTED	Air defenses
+Nnamdi Kanu	CONVICTED	inciting violence
+Donald Trump	REQUESTED	China to help with Russia
+Oleksandr Syrskyi	ANNOUNCED_STATEMENT	situation on front line significantly worsened
+Turkey	MET_WITH	talks between Kyiv and Moscow
+Unarmed drones	INVESTIGATED	airports in Western Europe
+Polina Sychova	IS_IDENTIFIED_AS	preserving Ukraine's culture
+pulling a 58-ton yacht	~IS_IDENTIFIED_AS	new world record
+Anna Paulina Luna	LOCATED_IN	social media
+Russian forces	ANNOUNCED_STATEMENT	barrage of air strikes
+Ukraine	~IS_IDENTIFIED_AS	Tomahawk missiles
+Embezzlement	CAUSED	outrage
+Lawmakers	INTENDS_TO	military service plan
+Call	LOCATED_IN	Representative Joe Courtney
+European leaders	INTENDS_TO	ratchet up pressure on Russia
+Hungary's dependence on Russian oil and gas	INTENDS_TO	maintain good relations with Moscow
+Moscow	~LOCATED_IN	Kassym-Jomart Tokayev
+Operation Containment	IS_IDENTIFIED_AS	soldiers
+Changing weather	CAUSED	treacherous conditions
+EU	AGREED_TO	finance Ukraine
+Chancellor Friedrich Merz	INTENDS_TO	Bundeswehr
+Decision by Trump	IS_IDENTIFIED_AS	major victory for Orban
+Ukraine	ATTACKED	a deal
+Jonatan Tholin	ANNOUNCED_STATEMENT	ship will go to Russia
+largest missile and drone attack	ATTACKED	medical facility
+Donald Trump	ANNOUNCED_STATEMENT	new sanctions
+President of Ukraine	~IS_IDENTIFIED_AS	Volodymyr Zelensky
+US president	ANNOUNCED_STATEMENT	crown prince knew nothing
+Reuters AI	INVESTIGATED	key points
+Philippa Fletcher	ANNOUNCED_STATEMENT	the story
+Europe	HAS_QUANTITY	Russia's shadow fleet
+strikes	~TRADES_WITH	Zelensky
+massive overnight attack	OCCURRED_ON	Ukraine
+Attack	TRANSPORTED	former sailor
+Gordon Lyons	REFUSED	changes to alcohol licensing rules
+Police	INTENDS_TO	crush protests
+Volodymyr Zelensky	MET_WITH	Recep Tayyip Erdogan
+Russian representative	CUT_TIES	meeting in Ankara
+Summit	IS_IDENTIFIED_AS	US President Donald Trump
+Pontoon construction	OCCURRED_ON	Friday
+Russian troops	MET_WITH	Pokrovsk
+Scandal	ACCUSED_OF	Zelensky's commitment to fighting corruption
+Buying oil and gas from Russia	SUPPORTED_OR_ALLIED	war in Ukraine
+Defence committee	ANNOUNCED_STATEMENT	UK is nowhere near where it needs to be to defend itself
+Two acts of sabotage	LOCATED_IN	Poland's rail network
+Yevgeny Ivanov	INVESTIGATED	CNN's Fred Pleitgen
+Russian Volunteer Corps	ANNOUNCED_STATEMENT	a plan
